@@ -1,0 +1,4326 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Конспект: ферменты, нейромедиаторы, нервно-мышечная передача</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Noto+Serif+SC:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --coffee-50: #fbf7f2;
+        --coffee-100: #f5ede4;
+        --coffee-150: #efe3d6;
+        --coffee-200: #e8d8c8;
+        --coffee-300: #d9c3a5;
+        --coffee-400: #c4a484;
+        --coffee-500: #b08968;
+        --coffee-600: #8b6f5a;
+        --coffee-700: #6b4f3f;
+        --coffee-800: #4f3a2f;
+        --coffee-900: #35271f;
+        --cream: #fffaf4;
+        --rose-dust: #d8b4a6;
+        --sage: #a8b5a2;
+        --ink: #3d2f28;
+        --muted: #7a665a;
+        --line: rgba(107, 79, 63, 0.18);
+        --shadow: 0 18px 45px rgba(79, 58, 47, 0.1);
+        --shadow-soft: 0 8px 22px rgba(79, 58, 47, 0.08);
+        --radius-lg: 26px;
+        --radius-md: 18px;
+        --radius-sm: 12px;
+        --maxw: 1180px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family:
+          "Merriweather", "Noto Serif SC", Georgia, "Times New Roman", serif;
+        color: var(--ink);
+        background:
+          radial-gradient(
+            circle at 10% 5%,
+            rgba(217, 195, 165, 0.34),
+            transparent 32rem
+          ),
+          radial-gradient(
+            circle at 92% 10%,
+            rgba(216, 180, 166, 0.22),
+            transparent 30rem
+          ),
+          linear-gradient(
+            180deg,
+            var(--coffee-50) 0%,
+            #f8f1e9 45%,
+            #f3e9de 100%
+          );
+        line-height: 1.78;
+        text-align: justify;
+        text-justify: inter-word;
+        letter-spacing: 0.01em;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(107, 79, 63, 0.018) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(107, 79, 63, 0.018) 1px, transparent 1px);
+        background-size: 28px 28px;
+        z-index: -1;
+      }
+
+      a {
+        color: var(--coffee-700);
+        text-decoration: none;
+        border-bottom: 1px dotted rgba(107, 79, 63, 0.45);
+        transition:
+          color 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      a:hover {
+        color: var(--coffee-900);
+        border-color: var(--coffee-900);
+      }
+
+      .page {
+        width: min(var(--maxw), calc(100% - 36px));
+        margin: 0 auto;
+        padding: 34px 0 80px;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(30px, 5vw, 64px);
+        border-radius: 34px;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255, 250, 244, 0.96),
+            rgba(245, 237, 228, 0.92)
+          ),
+          radial-gradient(
+            circle at 90% 20%,
+            rgba(176, 137, 104, 0.28),
+            transparent 24rem
+          );
+        border: 1px solid rgba(139, 111, 90, 0.22);
+        box-shadow: var(--shadow);
+      }
+
+      .hero::after {
+        content: "☕";
+        position: absolute;
+        right: clamp(18px, 5vw, 64px);
+        top: clamp(10px, 3vw, 32px);
+        font-size: clamp(54px, 9vw, 126px);
+        opacity: 0.12;
+        filter: grayscale(0.2);
+        transform: rotate(-8deg);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 7px 14px;
+        border: 1px solid rgba(139, 111, 90, 0.28);
+        border-radius: 999px;
+        color: var(--coffee-700);
+        background: rgba(255, 250, 244, 0.65);
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--coffee-500);
+        box-shadow: 0 0 0 4px rgba(176, 137, 104, 0.18);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: var(--coffee-800);
+        line-height: 1.28;
+        margin: 0 0 0.65em;
+        text-align: left;
+      }
+
+      h1 {
+        margin-top: 22px;
+        font-size: clamp(2rem, 4.8vw, 4.2rem);
+        font-weight: 700;
+        letter-spacing: -0.035em;
+      }
+
+      .hero .subtitle {
+        max-width: 850px;
+        margin: 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 1.45vw, 1.16rem);
+        text-align: justify;
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 13px;
+        border-radius: 999px;
+        background: rgba(232, 216, 200, 0.58);
+        border: 1px solid rgba(139, 111, 90, 0.16);
+        color: var(--coffee-700);
+        font-size: 0.86rem;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
+        gap: 28px;
+        align-items: start;
+        margin-top: 30px;
+      }
+
+      .toc {
+        position: sticky;
+        top: 22px;
+        padding: 24px;
+        border-radius: var(--radius-lg);
+        background: rgba(255, 250, 244, 0.72);
+        border: 1px solid rgba(139, 111, 90, 0.18);
+        box-shadow: var(--shadow-soft);
+        backdrop-filter: blur(10px);
+      }
+
+      .toc h2 {
+        font-size: 1.05rem;
+        margin-bottom: 14px;
+        letter-spacing: 0.02em;
+      }
+
+      .toc ol {
+        margin: 0;
+        padding-left: 1.2rem;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .toc li {
+        margin: 0.52rem 0;
+        padding-left: 0.1rem;
+      }
+
+      .toc a {
+        border: none;
+        color: var(--coffee-700);
+      }
+
+      .toc a:hover {
+        color: var(--coffee-900);
+      }
+
+      main {
+        min-width: 0;
+      }
+
+      section {
+        margin-bottom: 26px;
+        padding: clamp(22px, 3vw, 36px);
+        border-radius: var(--radius-lg);
+        background: rgba(255, 250, 244, 0.78);
+        border: 1px solid rgba(139, 111, 90, 0.16);
+        box-shadow: var(--shadow-soft);
+      }
+
+      section > h2 {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      section > h2::before {
+        content: "";
+        flex: 0 0 auto;
+        width: 11px;
+        height: 28px;
+        border-radius: 99px;
+        background: linear-gradient(
+          180deg,
+          var(--coffee-400),
+          var(--coffee-600)
+        );
+        box-shadow: 0 4px 12px rgba(107, 79, 63, 0.18);
+      }
+
+      h3 {
+        font-size: 1.16rem;
+        margin-top: 1.45em;
+      }
+
+      h4 {
+        font-size: 1rem;
+        margin-top: 1.2em;
+        color: var(--coffee-700);
+      }
+
+      p {
+        margin: 0.75em 0;
+      }
+
+      ul,
+      ol {
+        margin: 0.7em 0 0.9em;
+        padding-left: 1.45rem;
+      }
+
+      li {
+        margin: 0.42em 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 16px;
+        margin: 18px 0;
+      }
+
+      .card {
+        grid-column: span 6;
+        padding: 20px;
+        border-radius: var(--radius-md);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 250, 244, 0.92),
+          rgba(245, 237, 228, 0.72)
+        );
+        border: 1px solid rgba(139, 111, 90, 0.16);
+        box-shadow: 0 6px 18px rgba(79, 58, 47, 0.055);
+      }
+
+      .card.full {
+        grid-column: 1 / -1;
+      }
+
+      .card h4 {
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .card h4::before {
+        content: "◆";
+        color: var(--coffee-400);
+        font-size: 0.78em;
+      }
+
+      .term {
+        color: var(--coffee-800);
+        font-weight: 700;
+        background: linear-gradient(
+          transparent 58%,
+          rgba(217, 195, 165, 0.48) 58%
+        );
+        padding: 0 0.08em;
+      }
+
+      .note,
+      .warning,
+      .remember {
+        position: relative;
+        margin: 18px 0;
+        padding: 17px 20px 17px 54px;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(139, 111, 90, 0.16);
+        background: rgba(245, 237, 228, 0.62);
+        color: var(--ink);
+      }
+
+      .note::before,
+      .warning::before,
+      .remember::before {
+        position: absolute;
+        left: 18px;
+        top: 15px;
+        font-size: 1.18rem;
+      }
+
+      .note::before {
+        content: "✎";
+        color: var(--coffee-600);
+      }
+
+      .warning::before {
+        content: "!";
+        width: 22px;
+        height: 22px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--rose-dust);
+        color: var(--coffee-900);
+        font-weight: 700;
+        font-size: 0.82rem;
+        top: 17px;
+      }
+
+      .remember::before {
+        content: "★";
+        color: var(--coffee-500);
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        margin: 18px 0;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(139, 111, 90, 0.16);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 560px;
+        background: rgba(255, 250, 244, 0.72);
+        font-size: 0.94rem;
+      }
+
+      th,
+      td {
+        padding: 13px 15px;
+        border-bottom: 1px solid rgba(139, 111, 90, 0.12);
+        vertical-align: top;
+        text-align: left;
+      }
+
+      th {
+        color: var(--coffee-800);
+        background: rgba(217, 195, 165, 0.34);
+        font-weight: 700;
+        letter-spacing: 0.01em;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      tr:nth-child(even) td {
+        background: rgba(245, 237, 228, 0.28);
+      }
+
+      .equation {
+        margin: 18px 0;
+        padding: 18px 22px;
+        border-radius: var(--radius-md);
+        background: rgba(232, 216, 200, 0.38);
+        border-left: 5px solid var(--coffee-500);
+        font-family: "Merriweather", Georgia, serif;
+        text-align: center;
+        font-size: 1.02rem;
+        color: var(--coffee-800);
+        overflow-x: auto;
+      }
+
+      .timeline {
+        position: relative;
+        margin: 22px 0;
+        padding-left: 28px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 7px;
+        top: 4px;
+        bottom: 4px;
+        width: 2px;
+        border-radius: 99px;
+        background: linear-gradient(
+          180deg,
+          var(--coffee-300),
+          var(--coffee-500),
+          var(--coffee-300)
+        );
+      }
+
+      .timeline-item {
+        position: relative;
+        margin: 0 0 20px;
+        padding: 0 0 0 8px;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -27px;
+        top: 7px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--cream);
+        border: 3px solid var(--coffee-500);
+        box-shadow: 0 0 0 4px rgba(176, 137, 104, 0.12);
+      }
+
+      .timeline-item strong {
+        color: var(--coffee-800);
+      }
+
+      .badge {
+        display: inline-block;
+        margin: 0 0.28em 0.28em 0;
+        padding: 4px 9px;
+        border-radius: 999px;
+        background: rgba(168, 181, 162, 0.28);
+        border: 1px solid rgba(107, 79, 63, 0.12);
+        color: var(--coffee-700);
+        font-size: 0.78rem;
+        line-height: 1.4;
+      }
+
+      .badge.rose {
+        background: rgba(216, 180, 166, 0.3);
+      }
+
+      .badge.sand {
+        background: rgba(217, 195, 165, 0.38);
+      }
+
+      .two-col {
+        columns: 2;
+        column-gap: 26px;
+      }
+
+      .two-col p,
+      .two-col li {
+        break-inside: avoid;
+      }
+
+      .footer {
+        margin-top: 30px;
+        padding: 24px;
+        border-radius: var(--radius-lg);
+        text-align: center;
+        color: var(--muted);
+        border: 1px dashed rgba(139, 111, 90, 0.28);
+        background: rgba(255, 250, 244, 0.46);
+        font-size: 0.9rem;
+      }
+
+      .kbd {
+        display: inline-block;
+        padding: 2px 7px;
+        border-radius: 6px;
+        border: 1px solid rgba(139, 111, 90, 0.24);
+        background: rgba(255, 250, 244, 0.72);
+        color: var(--coffee-700);
+        font-size: 0.86em;
+        box-shadow: 0 1px 0 rgba(79, 58, 47, 0.08);
+      }
+
+      .divider {
+        height: 1px;
+        margin: 26px 0;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(139, 111, 90, 0.28),
+          transparent
+        );
+      }
+
+      @media (max-width: 980px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        .toc {
+          position: static;
+        }
+
+        .card {
+          grid-column: 1 / -1;
+        }
+
+        .two-col {
+          columns: 1;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .page {
+          width: min(100% - 20px, var(--maxw));
+          padding-top: 14px;
+        }
+
+        .hero {
+          border-radius: 24px;
+        }
+
+        section {
+          border-radius: 22px;
+        }
+
+        body {
+          line-height: 1.68;
+        }
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        .toc {
+          display: none;
+        }
+
+        .layout {
+          display: block;
+        }
+
+        section,
+        .hero {
+          box-shadow: none;
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <span class="eyebrow">Биохимия · физиология · конспект</span>
+        <h1>Ферменты, нейромедиаторы и нервно-мышечная передача</h1>
+        <p class="subtitle">
+          Единый учебный конспект по трём блокам материалов: молекулярные основы
+          ферментативного катализа, обзор классических и неклассических
+          нейромедиаторов, а также нервно-мышечный синапс и механизм сокращения
+          скелетной мышцы. Термины сохранены в русскоязычной традиции; в скобках
+          даны английские и общепринятые сокращения.
+        </p>
+        <div class="hero-meta">
+          <span class="pill">☕ пастельно-кофейное оформление</span>
+          <span class="pill">✎ структурированные карточки</span>
+          <span class="pill">★ ключевые тезисы</span>
+          <span class="pill">⌘ адаптивная вёрстка</span>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="toc" aria-label="Оглавление">
+          <h2>Оглавление</h2>
+          <ol>
+            <li><a href="#overview">Общая карта материала</a></li>
+            <li><a href="#enzymes">Ферменты: базовые понятия</a></li>
+            <li><a href="#energy">Энергия активации и энергия Гиббса</a></li>
+            <li>
+              <a href="#structure">Активный центр и регуляторные сайты</a>
+            </li>
+            <li><a href="#cofactors">Кофакторы, простые и сложные белки</a></li>
+            <li><a href="#specificity">Специфичность ферментов</a></li>
+            <li>
+              <a href="#examples">Примеры: АХЭ, пепсин, АДГ, гексокиназа</a>
+            </li>
+            <li><a href="#binding">Теории связывания субстрата</a></li>
+            <li><a href="#properties">Свойства и регуляция ферментов</a></li>
+            <li>
+              <a href="#regulation">Регуляция: ATCase и гликогенфосфорилаза</a>
+            </li>
+            <li><a href="#coupled">Сопряжённые реакции</a></li>
+            <li><a href="#stability">Устойчивость ферментов</a></li>
+            <li><a href="#catalysis">Механизмы катализа</a></li>
+            <li><a href="#homework">Домашнее задание</a></li>
+          </ol>
+          <p style="margin-top: 18px; color: var(--muted); font-size: 0.84rem">
+            Часть 2: нейромедиаторы. Часть 3: нервно-мышечная передача и мышца.
+          </p>
+        </aside>
+
+        <main>
+          <section id="overview">
+            <h2>Общая карта материала</h2>
+            <p>
+              Материал удобно разделить на три смысловых уровня. Первый —
+              <span class="term">молекулярная биохимия</span>: как ферменты
+              ускоряют реакции, чем органические катализаторы отличаются от
+              неорганических, какие участки белка отвечают за связывание,
+              катализ и регуляцию. Второй —
+              <span class="term">нейрохимия</span>: серотонин, дофамин,
+              норадреналин, глутамат, ГАМК, глицин, гистамин, опиоидные пептиды
+              и эндоканнабиноиды. Третий —
+              <span class="term">физиология синапса и мышцы</span>: никотиновые
+              рецепторы, концевая пластинка, электромеханическое сопряжение,
+              актин, миозин, тропонин и кальций.
+            </p>
+
+            <div class="grid">
+              <div class="card">
+                <h4>Блок 1. Ферменты</h4>
+                <p>
+                  Энергия активации, активный центр, кофакторы, специфичность,
+                  регуляция, механизмы катализа. Главный вывод: фермент снижает
+                  энергетический барьер и ускоряет только энергетически
+                  возможные реакции.
+                </p>
+              </div>
+              <div class="card">
+                <h4>Блок 2. Нейромедиаторы</h4>
+                <p>
+                  Классические амины и аминокислоты, их синтез, удаление,
+                  рецепторы и клинически важные эффекты. Отдельно —
+                  неклассические медиаторы: гистамин, опиоиды, эндоканнабиноиды.
+                </p>
+              </div>
+              <div class="card full">
+                <h4>Блок 3. Нервно-мышечная передача</h4>
+                <p>
+                  Потенциал действия приходит к окончанию мотонейрона →
+                  выделяется ацетилхолин → активируются никотиновые рецепторы
+                  концевой пластинки → возникает ПД мышцы → кальций запускает
+                  взаимодействие актина и миозина → происходит сокращение.
+                  Миастения гравис показывает, что бывает при аутоиммунной
+                  блокаде никотиновых рецепторов.
+                </p>
+              </div>
+            </div>
+
+            <div class="remember">
+              <strong>Главная логика конспекта:</strong> сначала понять, как
+              работает молекулярный «инструмент» — фермент, затем — как клетки
+              общаются химическими сигналами, и наконец — как сигнал
+              превращается в физиологический ответ, например в сокращение мышцы.
+            </div>
+          </section>
+
+          <section id="enzymes">
+            <h2>Ферменты: базовые понятия</h2>
+            <p>
+              <span class="term">Ферменты</span> — это биологические
+              катализаторы белковой природы, которые ускоряют химические
+              реакции, не расходуясь в ходе реакции и не изменяя её конечного
+              результата. Они не «делают» энергетически невозможную реакцию
+              возможной; они снижают барьер для реакции, которая
+              термодинамически может протекать.
+            </p>
+
+            <div class="grid">
+              <div class="card">
+                <h4>Неорганические катализаторы</h4>
+                <p>
+                  Работают за счёт снижения энергии активации. Могут ускорять
+                  реакцию примерно в 1000 раз и более, но обычно уступают
+                  ферментам по эффективности и специфичности.
+                </p>
+              </div>
+              <div class="card">
+                <h4>Биологические катализаторы</h4>
+                <p>
+                  Ферменты ускоряют реакции в среднем от
+                  <span class="term">10⁵ до 10¹² раз</span>. Это связано с
+                  тонкой пространственной организацией активного центра,
+                  стабилизацией переходного состояния и возможностью тонкой
+                  регуляции.
+                </p>
+              </div>
+            </div>
+
+            <p>
+              После реакции фермент не «тратится»: он поработал и готов работать
+              дальше. Именно поэтому небольшие количества фермента могут
+              превращать большие количества субстрата. Ускорение происходит
+              только для реакций, которые энергетически возможны; фермент не
+              нарушает законы термодинамики.
+            </p>
+
+            <div class="note">
+              <strong>Важно:</strong> «фермент ускоряет реакцию» не означает
+              «фермент делает реакцию выгодной». Если реакция термодинамически
+              невозможна в данных условиях, один фермент сам по себе её не
+              запустит.
+            </div>
+
+            <h3>Упрощённая запись ферментативной реакции</h3>
+            <div class="equation">E + S ⇌ ES ⇌ EP ⇌ E + P</div>
+            <p>
+              Здесь <span class="term">E</span> — фермент,
+              <span class="term">S</span> — субстрат,
+              <span class="term">ES</span> — фермент-субстратный комплекс,
+              <span class="term">EP</span> — фермент-продуктный комплекс,
+              <span class="term">P</span> — продукт. Ключевая идея: фермент
+              временно связывается с субстратом, стабилизирует переходное
+              состояние, ускоряет превращение и затем освобождает продукт.
+            </p>
+          </section>
+
+          <section id="energy">
+            <h2>Энергия активации и энергия Гиббса</h2>
+            <p>
+              <span class="term">Энергия активации</span> — это своеобразный
+              энергетический барьер, который нужно преодолеть, чтобы реакция
+              пошла. Фермент понижает этот барьер, формируя промежуточные
+              состояния и стабилизируя переходный комплекс. В результате реакции
+              требуется меньше внешней энергии.
+            </p>
+
+            <div class="grid">
+              <div class="card">
+                <h4>Энергия Гиббса, ΔG</h4>
+                <p>
+                  Упрощённо — свободная энергия системы. Чем меньше энергия
+                  системы, тем устойчивее состояние. Для реакций с ΔG &lt; 0
+                  характерно самопроизвольное протекание в данных условиях; для
+                  реакций с ΔG &gt; 0 нужна энергия извне или сопряжение с
+                  другой реакцией.
+                </p>
+              </div>
+              <div class="card">
+                <h4>Фермент и ΔG</h4>
+                <p>
+                  Фермент не меняет общую разницу энергий между исходным и
+                  конечным состоянием. Он меняет
+                  <em>путь</em> реакции и снижает энергию активации. Поэтому
+                  равновесие не «сдвигается» ферментом в термодинамическом
+                  смысле — фермент ускоряет достижение равновесия.
+                </p>
+              </div>
+            </div>
+
+            <div class="remember">
+              <strong>Запомнить:</strong> фермент снижает энергию активации, но
+              не меняет знак ΔG реакции. Если ΔG &gt; 0, нужна сопряжённая
+              энергия, например гидролиз АТФ.
+            </div>
+          </section>
+
+          <section id="structure">
+            <h2>Активный центр и регуляторные сайты</h2>
+            <p>
+              У фермента выделяют несколько принципиально важных зон.
+              <span class="term">Активный центр</span> — это место, где
+              происходит связывание субстрата и его химическое превращение.
+              Обычно он расположен не на поверхности, а в виде «кармана» внутри
+              белка. В активном центре часто выделяют зону связывания субстрата
+              (<span class="term">binding site</span>) и зону катализа (<span
+                class="term"
+                >каталитический центр</span
+              >).
+            </p>
+
+            <div class="grid">
+              <div class="card">
+                <h4>Активный центр</h4>
+                <p>
+                  Обеспечивает узнавание субстрата, ориентацию molecule в нужном
+                  положении и стабилизацию переходного состояния. Именно здесь
+                  «копают» — то есть происходит химическая реакция.
+                </p>
+              </div>
+              <div class="card">
+                <h4>Регуляторный / аллостерический центр</h4>
+                <p>
+                  Участок, через который ингибиторы или активаторы меняют работу
+                  фермента. Это не место катализа, а «пульт управления»:
+                  связывание модулятора меняет конформацию белка и активность
+                  активного центра.
+                </p>
+              </div>
+            </div>
+
+            <p>
+              Аллостерическая регуляция особенно важна для ферментов
+              метаболизма. Она позволяет клетке быстро перестраивать поток
+              веществ: например, при избытке конечного продукта тормозить
+              начальные этапы пути или, наоборот, активировать фермент при
+              появлении стимулирующего сигнала.
+            </p>
+          </section>
+
+          <section id="cofactors">
+            <h2>Кофакторы, простые и сложные белки</h2>
+            <p>
+              <span class="term">Простой белок</span> — это чисто аминокислотная
+              последовательность, которая работает сама по себе.
+              <span class="term">Сложный белок</span> содержит белковую часть и
+              дополнительную группу: липид, сахар, металл, витаминное
+              производное или иную небелковую молекулу.
+            </p>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Понятие</th>
+                    <th>Что это</th>
+                    <th>Примеры / комментарий</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="term">Кофактор</span></td>
+                    <td>
+                      Небелковая молекула или ион, необходимый для нормальной
+                      работы фермента.
+                    </td>
+                    <td>
+                      Fe, Cu, Ca, Zn, Mg, молибден; производные витаминов.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="term">Простетическая группа</span></td>
+                    <td>
+                      Прочно связанная с белком небелковая часть, встроенная в
+                      структуру фермента.
+                    </td>
+                    <td>
+                      Может участвовать в катализе и стабилизации структуры.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="term">Апофермент</span></td>
+                    <td>Белковая часть без кофактора.</td>
+                    <td>Обычно неактивна или менее активна.</td>
+                  </tr>
+                  <tr>
+                    <td><span class="term">Холофермент</span></td>
+                    <td>Полный активный комплекс: белок + кофактор.</td>
+                    <td>Функционально зрелая форма.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="note">
+              <strong
+                >Без кофактора ферментативная реакция может не пойти.</strong
+              >
+              Кофактор может принимать электроны, стабилизировать заряд,
+              ориентировать субстрат или участвовать в переносе химической
+              группы.
+            </div>
+          </section>
+
+          <section id="specificity">
+            <h2>Специфичность ферментов</h2>
+            <p>
+              Специфичность — это способность фермента выбирать «свой» субстрат.
+              Выделяют несколько уровней.
+            </p>
+
+            <div class="grid">
+              <div class="card">
+                <h4>Абсолютная специфичность</h4>
+                <p>
+                  Фермент работает только с одним конкретным субстратом.
+                  Встречается редко. Классический пример —
+                  <span class="term">ацетилхолинэстераза</span>, расщепляющая
+                  ацетилхолин.
+                </p>
+              </div>
+              <div class="card">
+                <h4>Групповая специфичность</h4>
+                <p>
+                  Фермент действует на группу похожих субстратов, например на
+                  определённый тип связи или класс молекул. Пример — пепсин,
+                  расщепляющий пептидные связи после гидрофобных аминокислот.
+                </p>
+              </div>
+              <div class="card full">
+                <h4>Стереоспецифичность</h4>
+                <p>
+                  Фермент различает пространственные изомеры. Например, D- и
+                  L-глюкоза отличаются положением гидроксильных групп
+                  относительно плоскости кольца; фермент может работать только с
+                  одним стереоизомером. Так, гексокиназа фосфорилирует
+                  конкретную форму глюкозы, а не любой изомер.
+                </p>
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Тип специфичности</th>
+                    <th>Суть</th>
+                    <th>Пример</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Абсолютная</td>
+                    <td>Только один субстрат.</td>
+                    <td>Ацетилхолинэстераза.</td>
+                  </tr>
+                  <tr>
+                    <td>Групповая</td>
+                    <td>Группа родственных субстратов.</td>
+                    <td>Пепсин; алкогольдегидрогеназа.</td>
+                  </tr>
+                  <tr>
+                    <td>Стереоспецифичность</td>
+                    <td>Только один стереоизомер.</td>
+                    <td>
+                      Ферменты углеводного обмена по отношению к D-глюкозе.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="examples">
+            <h2>
+              Примеры: ацетилхолинэстераза, пепсин, алкогольдегидрогеназа,
+              гексокиназа
+            </h2>
+
+            <h3>Ацетилхолинэстераза</h3>
+            <p>
+              <span class="term">Ацетилхолинэстераза</span> — фермент с
+              абсолютной специфичностью. Она расщепляет ацетилхолин в
+              синаптической щели, чтобы не было избыточной активации
+              постсинаптической мембраны. В активном центре есть анионный сайт,
+              где происходит взаимодействие с азотом, и зона, где идёт
+              взаимодействие с углеродом ацетильной группы. В итоге ацетилхолин
+              разрушается, и рецепторы освобождаются для следующего сигнала.
+            </p>
+
+            <div class="note">
+              <strong>Смысл:</strong> если ацетилхолинэстераза не работает,
+              ацетилхолин накапливается и длительно активирует рецепторы. Это
+              может привести к перевозбуждению, судорогам и нарушению передачи
+              сигнала.
+            </div>
+
+            <h3>Пепсин и пепсиноген</h3>
+            <p>
+              <span class="term">Пепсиноген</span> — неактивный предшественник
+              пепсина. Под действием соляной кислоты он превращается в активный
+              пепсин: отщепляется часть полипептидной цепочки, активный центр
+              освобождается. Пепсин расщепляет пептидные связи после гидрофобных
+              аминокислот. Важная особенность — аутокатализ: уже активный пепсин
+              может активировать новые молекулы пепсиногена, запуская каскад.
+            </p>
+
+            <div class="timeline">
+              <div class="timeline-item">
+                <strong>1.</strong> Пепсиноген попадает в кислую среду желудка.
+              </div>
+              <div class="timeline-item">
+                <strong>2.</strong> Соляная кислота вызывает конформационные
+                изменения и отщепление фрагмента.
+              </div>
+              <div class="timeline-item">
+                <strong>3.</strong> Освобождается активный центр; пепсин
+                начинает расщеплять белки.
+              </div>
+              <div class="timeline-item">
+                <strong>4.</strong> Активный пепсин активирует другие молекулы
+                пепсиногена — аутокаталитический каскад.
+              </div>
+            </div>
+
+            <h3>Алкогольдегидрогеназа</h3>
+            <p>
+              <span class="term">Алкогольдегидрогеназа</span> работает в печени
+              и участвует в окислении этанола. Она имеет групповую
+              специфичность: лучше связывает этанол, но может работать и с
+              другими спиртами. Кофактор — NAD⁺, который принимает электроны и
+              восстанавливается до NADH. В активном центре есть ион цинка,
+              который позиционирует молекулу этанола в нужном положении.
+            </p>
+
+            <div class="warning">
+              <strong>Клинический пример:</strong> при отравлении метанолом
+              вводят этанол. Этанол имеет большее сродство к
+              алкогольдегидрогеназе и вытесняет метанол из активного центра. В
+              результате метанол меньше превращается в токсичные метаболиты.
+            </div>
+
+            <h3>Гексокиназа и глюкокиназа</h3>
+            <p>
+              <span class="term">Гексокиназа</span> фосфорилирует глюкозу до
+              глюкозо-6-фосфата, используя АТФ. Киназы — это ферменты, которые
+              переносят остаток фосфорной кислоты. Реакция фосфорилирования
+              глюкозы важна, потому что:
+            </p>
+            <ul>
+              <li>
+                заряженный фосфат «запирает» глюкозу в клетке и препятствует её
+                обратному выходу;
+              </li>
+              <li>
+                глюкозо-6-фосфат менее склонен самопроизвольно покидать клетку и
+                может включаться в дальнейший метаболизм;
+              </li>
+              <li>
+                это помогает поддерживать градиент для continued поступления
+                глюкозы через GLUT-переносчики.
+              </li>
+            </ul>
+
+            <div class="remember">
+              <strong>Связка:</strong> гексокиназа — пример фермента, который
+              работает с конкретным субстратом и использует АТФ. Это также
+              пример сопряжённой реакции: фосфорилирование глюкозы само по себе
+              энергетически невыгодно, но сопряжено с гидролизом АТФ.
+            </div>
+          </section>
+
+          <section id="binding">
+            <h2>Теории связывания субстрата</h2>
+            <p>
+              Как фермент узнаёт субстрат? Исторически обсуждают две модели.
+            </p>
+
+            <div class="grid">
+              <div class="card">
+                <h4>Теория «ключ — замок»</h4>
+                <p>
+                  Активный центр идеально соответствует субстрату, как ключ
+                  замку. Проблема: если соответствие слишком идеальное,
+                  фермент-субстратный комплекс становится очень стабильным, и
+                  субстрату может быть энергетически невыгодно превращаться в
+                  продукт.
+                </p>
+              </div>
+              <div class="card">
+                <h4>Теория индуцированного соответствия</h4>
+                <p>
+                  Более близка к реальности: при связывании субстрата фермент и
+                  субстрат слегка подстраиваются друг под друга, как рука и
+                  перчатка. Активный центр меняет конформацию, стабилизирует
+                  переходное состояние, но не «замораживает» субстрат слишком
+                  комфортно.
+                </p>
+              </div>
+            </div>
+
+            <p>
+              Классический пример индуцированного соответствия —
+              <span class="term">гексокиназа</span>. В свободном состоянии она
+              имеет более открытую форму; при связывании глюкозы концы «подковы»
+              сближаются, активный центр закрывается, и создаются условия для
+              фосфорилирования.
+            </p>
+
+            <div class="note">
+              <strong>Вывод:</strong> модель «рука — перчатка» лучше объясняет,
+              почему фермент снижает барьер, но не делает промежуточное
+              состояние настолько стабильным, чтобы реакция остановилась.
+            </div>
+          </section>
+
+          <section id="properties">
+            <h2>Свойства и регуляция ферментов</h2>
+            <p>
+              Ферменты обладают рядом важных свойств: работают в определённом
+              диапазоне температур и pH, высокоспецифичны, часто имеют большую
+              молекулярную массу, могут содержать регуляторные сайты и
+              участвовать в сопряжении химических реакций.
+            </p>
+
+            <div class="grid">
+              <div class="card">
+                <h4>Термолабильность</h4>
+                <p>
+                  При повышении температуры скорость реакции сначала растёт, но
+                  выше определённого порога белок денатурирует: нарушается
+                  третичная и вторичная структура, фермент теряет активность.
+                  При снижении температуры скорость ферментативной реакции
+                  замедляется.
+                </p>
+              </div>
+              <div class="card">
+                <h4>Регуляция</h4>
+                <p>
+                  Некоторые ферменты нуждаются в позитивных модуляторах или
+                  ингибиторах. Регуляторные молекулы могут связываться с
+                  аллостерическим сайтом и менять конформацию активного центра.
+                </p>
+              </div>
+              <div class="card full">
+                <h4>Сопряжение химических реакций</h4>
+                <p>
+                  Если реакция эндергоническая (ΔG &gt; 0), ей нужна энергия.
+                  Часто такая реакция сопряжена с экзергонической реакцией,
+                  например с гидролизом АТФ. Суммарная ΔG при этом становится
+                  отрицательной, и процесс может идти.
+                </p>
+              </div>
+            </div>
+
+            <div class="remember">
+              <strong>Правило:</strong> высокая температура может денатурировать
+              фермент, а низкая — замедлить реакцию, но не обязательно разрушить
+              белок. Оптимум температуры и pH у разных ферментов разный.
+            </div>
+          </section>
+
+          <section id="regulation">
+            <h2>Регуляция: ATCase и гликогенфосфорилаза</h2>
+
+            <h3>Аспартат-карбамоилтрансфераза, ATCase</h3>
+            <p>
+              <span class="term">ATC-аза</span> участвует в первых этапах
+              синтеза пиримидинового кольца. Она катализирует реакцию между
+              аспартатом и карбамоилфосфатом. У фермента есть неактивное и
+              активное состояние. Переход в активное состояние связан с
+              удалением аллостерических модуляторов (например, CTP) из
+              регуляторных участков. В результате фермент меняет конформацию и
+              активируется.
+            </p>
+
+            <div class="note">
+              <strong>Смысл аллостерии:</strong> конечный продукт пути может
+              тормозить начальный фермент. Это отрицательная обратная связь:
+              если пиримидинов достаточно, нет смысла дальше гнать путь.
+            </div>
+
+            <h3>Гликогенфосфорилаза</h3>
+            <p>
+              <span class="term">Гликогенфосфорилаза</span> расщепляет гликоген
+              с образованием глюкозо-1-фосфата. Её активность регулируется
+              фосфорилированием и дефосфорилированием. Киназа добавляет
+              фосфатные группы, фосфатаза их снимает. В зависимости от состояния
+              фермент активен или неактивен. Это пример ковалентной регуляции:
+              активность меняется не только за счёт аллостерических молекул, но
+              и за счёт химической модификации белка.
+            </p>
+          </section>
+
+          <section id="coupled">
+            <h2>Сопряжённые реакции</h2>
+            <p>
+              <span class="term">Сопряжённые реакции</span> — это реакции,
+              которые протекают вместе, причём энергия одной реакции
+              используется для другой. Ведущая реакция идёт с высвобождением
+              энергии (ΔG &lt; 0), ведомая требует энергии (ΔG &gt; 0).
+              Суммарная ΔG системы отрицательна, поэтому процесс возможен.
+            </p>
+
+            <div class="equation">
+              ΔG<sub>суммарная</sub> = ΔG<sub>ведомая</sub> + ΔG<sub
+                >ведущая</sub
+              >
+              &lt; 0
+            </div>
+
+            <p>
+              Пример — фосфорилирование глюкозы. Сама по себе реакция
+              присоединения фосфата к глюкозе имеет положительную ΔG и не пошла
+              бы самопроизвольно. Но она сопряжена с гидролизом АТФ, который
+              энергетически выгоден. В итоге суммарный процесс идёт.
+            </p>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Тип реакции</th>
+                    <th>Знак ΔG</th>
+                    <th>Что происходит</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Экзергоническая / ведущая</td>
+                    <td>ΔG &lt; 0</td>
+                    <td>
+                      Высвобождает энергию, может «тянуть» другую реакцию.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Эндергоническая / ведомая</td>
+                    <td>ΔG &gt; 0</td>
+                    <td>
+                      Требует энергии; сама по себе самопроизвольно не идёт.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="stability">
+            <h2>Устойчивость ферментов</h2>
+            <p>
+              У внеклеточных ферментов обычно больше устойчивость к факторам
+              среды. Это связано с тем, что снаружи клетки условия менее
+              стабильны. У таких белков часто больше дисульфидных связей и
+              других стабилизирующих взаимодействий. Внутри клетки среда более
+              восстановительная, и для работы фермента важны свободные группы,
+              которые могут участвовать в реакции с субстратом. Поэтому
+              внутриклеточные ферменты в среднем менее устойчивы, хотя из любого
+              правила есть исключения.
+            </p>
+
+            <div class="note">
+              <strong>Тенденция:</strong> «наружу — прочнее, внутрь —
+              реактивнее». Это не абсолютный закон, а общее наблюдение:
+              extracellular enzymes often need more stabilization.
+            </div>
+          </section>
+
+          <section id="catalysis">
+            <h2>Механизмы катализа</h2>
+            <p>
+              Механизмов катализа много; в конспекте разобраны три основных.
+            </p>
+
+            <div class="grid">
+              <div class="card">
+                <h4>Кислотно-основной катализ</h4>
+                <p>
+                  Основан на переносе протона или электронной пары. В реакции
+                  участвуют нуклеофилы и электрофилы. Аминокислоты в активном
+                  центре могут выступать донорами или акцепторами протонов,
+                  стабилизируя промежуточные соединения и направляя распад в
+                  нужную сторону.
+                </p>
+              </div>
+              <div class="card">
+                <h4>Ковалентный катализ</h4>
+                <p>
+                  Между ферментом и субстратом образуется настоящая ковалентная
+                  связь. В активном центре есть нуклеофильная группа, которая
+                  атакует субстрат; образуется промежуточный ковалентный
+                  комплекс, затем он распадается с освобождением продукта.
+                </p>
+              </div>
+              <div class="card full">
+                <h4>Металлозависимый катализ</h4>
+                <p>
+                  Ионы металлов с переменной степенью окисления (Fe, Cu, Zn и
+                  др.) могут принимать или отдавать электроны, стабилизировать
+                  заряды и ориентировать субстрат. Цинк, например, позиционирует
+                  этанол в активном центре алкогольдегидрогеназы.
+                </p>
+              </div>
+            </div>
+
+            <div class="remember">
+              <strong>Итог по катализу:</strong> фермент не просто «сближает»
+              молекулы. Он стабилизирует переходное состояние, правильно
+              ориентирует группы, может временно образовывать ковалентную связь
+              с субстратом и использовать кофакторы для переноса электронов или
+              химических групп.
+            </div>
+          </section>
+
+          <section id="homework">
+            <h2>Домашнее задание по ферментам</h2>
+            <p>
+              Выбрать любой фермент, кроме уже разобранных, и охарактеризовать
+              его:
+            </p>
+            <ol>
+              <li>
+                какая у него специфичность — абсолютная, групповая или
+                стереоспецифичность;
+              </li>
+              <li>какую реакцию он катализирует;</li>
+              <li>какие субстраты и продукты;</li>
+              <li>есть ли кофакторы или простетические группы;</li>
+              <li>как он регулируется, если это известно.</li>
+            </ol>
+
+            <div class="note">
+              <strong>Формат:</strong> разместить фермент на
+              «квадратике»/слайде, указать тип специфичности и кратко показать
+              реакцию. На следующем занятии — разбор классов ферментов и
+              уравнение Михаэлиса.
+            </div>
+          </section>
+
+          <!-- ЧАСТЬ 2 -->
+          <footer class="footer">
+            Часть 1 завершена. Чтобы продолжить, напишите
+            <span class="kbd">дальше</span>. Следующий фрагмент: нейромедиаторы
+            — серотонин, дофамин, норадреналин, глутамат, ГАМК, глицин,
+            гистамин, опиоидные пептиды и эндоканнабиноиды.
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
+<!-- ============================================================ -->
+<!-- ЧАСТЬ 2. НЕЙРОМЕДИАТОРЫ                                      -->
+<!-- ============================================================ -->
+
+<section id="neuro-overview">
+  <h2>Нейромедиаторы: общая карта</h2>
+  <p>
+    <span class="term">Нейромедиаторы</span> — химические посредники, которые
+    выделяются из пресинаптического окончания в синаптическую щель и действуют
+    на рецепторы постсинаптической мембраны. Их действие локально: один и тот же
+    медиатор в разных синапсах и на разных рецепторах может давать разные
+    эффекты. Это принципиально отличает нейромедиаторы от гормонов, которые
+    выделяются в кровь и действуют системно.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h4>Классические нейромедиаторы</h4>
+      <p>
+        Моноамины (серотонин, дофамин, норадреналин, адреналин), аминокислоты
+        (глутамат, ГАМК, глицин), ацетилхолин. Для них характерны быстрый
+        синтез, везикулярное хранение, обратный захват и ферментативное
+        разрушение в синапсе.
+      </p>
+    </div>
+    <div class="card">
+      <h4>Неклассические нейромедиаторы</h4>
+      <p>
+        Гистамин, опиоидные пептиды, эндоканнабиноиды, некоторые другие пептиды.
+        Они могут синтезироваться в соме, транспортироваться в везикулах,
+        действовать на широкие синаптические щели или работать «в обратном
+        направлении» — от постсинапса к пресинапсу.
+      </p>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Медиатор</th>
+          <th>Тип</th>
+          <th>Основной эффект</th>
+          <th>Ключевые рецепторы</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Серотонин (5-HT)</td>
+          <td>Моноамин</td>
+          <td>Сон, настроение, сенсорная фильтрация, тромбоциты, сосуды</td>
+          <td>5-HT₁–5-HT₇ (один ионотропный, остальные GPCR)</td>
+        </tr>
+        <tr>
+          <td>Дофамин</td>
+          <td>Моноамин</td>
+          <td>Мотивация, вознаграждение, движение, эмоции</td>
+          <td>D₁–D₅ (GPCR)</td>
+        </tr>
+        <tr>
+          <td>Норадреналин</td>
+          <td>Моноамин</td>
+          <td>Бодрствование, внимание, стресс, симпатика</td>
+          <td>α, β (GPCR)</td>
+        </tr>
+        <tr>
+          <td>Глутамат</td>
+          <td>Аминокислота</td>
+          <td>Основной возбуждающий медиатор ЦНС</td>
+          <td>AMPA, каинатные, NMDA, mGluR</td>
+        </tr>
+        <tr>
+          <td>ГАМК</td>
+          <td>Аминокислота</td>
+          <td>Основной тормозный медиатор ЦНС</td>
+          <td>ГАМК-А (Cl⁻-канал), ГАМК-Б (GPCR)</td>
+        </tr>
+        <tr>
+          <td>Глицин</td>
+          <td>Аминокислота</td>
+          <td>Торможение в спинном мозге, ко-агонист NMDA</td>
+          <td>Глициновый рецептор (Cl⁻-канал)</td>
+        </tr>
+        <tr>
+          <td>Гистамин</td>
+          <td>Неклассический</td>
+          <td>Аллергия, кислотность желудка, возбуждение ЦНС</td>
+          <td>H₁, H₂, H₃</td>
+        </tr>
+        <tr>
+          <td>Опиоидные пептиды</td>
+          <td>Неклассический</td>
+          <td>Обезболивание, эйфория, болевой порог</td>
+          <td>μ, δ, κ (GPCR)</td>
+        </tr>
+        <tr>
+          <td>Эндоканнабиноиды</td>
+          <td>Неклассический</td>
+          <td>Ретроградная регуляция синапса</td>
+          <td>CB₁, CB₂ (GPCR)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="remember">
+    <strong>Главное правило:</strong> эффект нейромедиатора определяется не
+    только самим веществом, но и типом рецептора, локализацией синапса и
+    контекстом. Один медиатор может возбуждать в одном синапсе и тормозить в
+    другом.
+  </div>
+</section>
+
+<section id="serotonin">
+  <h2>Серотонин (5-гидрокситриптамин, 5-HT)</h2>
+  <p>
+    <span class="term">Серотонин</span> образуется из аминокислоты
+    <span class="term">триптофана</span>, а не из тирозина. Триптофан поступает
+    из крови, захватывается пресинаптическим окончанием, гидроксилируется и
+    декарбоксилируется с образованием 5-гидрокситриптамина. Серотонин
+    накапливается в везикулах, высвобождается в щель и действует на
+    постсинаптические рецепторы.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h4>Синтез и удаление</h4>
+      <p>
+        Синтез: триптофан → 5-гидрокситриптофан → серотонин. Удаление: обратный
+        захват в пресинапс и частично в везикулы, а также метаболизм с помощью
+        <span class="term">моноаминоксидазы (МАО)</span>
+        в митохондриях.
+      </p>
+    </div>
+    <div class="card">
+      <h4>Рецепторы</h4>
+      <p>
+        Известно несколько подтипов (5-HT₁–5-HT₇). Один из них — ионотропный
+        канал, остальные — GPCR с разными метаболическими путями. Именно поэтому
+        серотонин может давать очень разные эффекты в разных тканях.
+      </p>
+    </div>
+  </div>
+
+  <h3>Функции в ЦНС</h3>
+  <p>
+    Серотонинергические нейроны сосредоточены в области
+    <span class="term">центрального серого вещества</span> вокруг сильвиева
+    водопровода. Их аксоны широко проецируются в кору и другие отделы мозга —
+    это так называемые <span class="term">широкие проекции</span>. Серотонин
+    модулирует активность целых отделов, а не передаёт одну конкретную команду.
+  </p>
+
+  <ul>
+    <li>
+      участвует в регуляции <strong>сна и бодрствования</strong>: серотониновые
+      нейроны активны при бодрствовании и «молчат» во время сна; при этом
+      серотонин — предшественник мелатонина;
+    </li>
+    <li>
+      участвует в <strong>сенсорной фильтрации</strong>: помогает разграничивать
+      сигналы разных модальностей (зрение, слух), чтобы мозг не «путал» их между
+      собой;
+    </li>
+    <li>
+      связан с
+      <strong
+        >обучением, эмоциональной сферой и болевой чувствительностью</strong
+      >;
+    </li>
+    <li>
+      вне ЦНС — участие в <strong>агрегации тромбоцитов</strong> и
+      <strong>сужении сосудов</strong>.
+    </li>
+  </ul>
+
+  <div class="note">
+    <strong>Тромбоциты и сосуды:</strong> при повреждении сосуда тромбоциты
+    выбрасывают серотонин, который стимулирует их слипание и образование тромба.
+    В области повреждения серотонин сужает сосуд, а в соседних участках —
+    способствует расширению, чтобы облегчить миграцию иммунных клеток.
+  </div>
+
+  <div class="warning">
+    <strong>Мигрень:</strong> один из механизмов — выброс серотонина вызывает
+    сужение вазодилататоров и изменение тонуса сосудов мозга, что приводит к
+    гипоксии и болевым ощущениям. Поэтому серотониновая система — мишень для
+    антимигренозных препаратов.
+  </div>
+
+  <h3>Серотонин и «гормон счастья»</h3>
+  <p>
+    Серотонин часто называют «гормоном счастья», но это упрощение. Во-первых, он
+    в основном работает как нейромедиатор локально, а не как гормон,
+    циркулирующий в крови. Во-вторых, высокий уровень серотонина
+    <em>не улучшает</em> настроение напрямую, но
+    <em>не даёт ему ухудшаться</em>. Современные исследования показывают, что
+    роль серотонина в депрессии сложнее, чем считалось в XX веке.
+  </p>
+
+  <div class="remember">
+    <strong>Ключевые факты:</strong> серотонин → из триптофана; разрушается МАО;
+    широкие проекции в ЦНС; участвует в сне, сенсорной фильтрации, настроении,
+    тромбоцитах и сосудах; предшественник мелатонина.
+  </div>
+
+  <h3>Психоделики и серотониновая система</h3>
+  <p>
+    Вещества, похожие на алкалоиды спорыньи, могут действовать на часть
+    серотониновых рецепторов как агонисты, а на часть — как блокаторы. Из-за
+    дисбаланса серотониновой системы нарушается разграничение сенсорных
+    сигналов: слуховая информация может «попадать» в зрительные зоны и наоборот.
+    Возникают галлюцинации. Качество галлюцинаций зависит от исходного
+    настроения, но любые препараты, нарушающие восприятие реальности, опасны.
+  </p>
+</section>
+
+<section id="dopamine-norepinephrine">
+  <h2>Дофамин и норадреналин</h2>
+  <p>
+    Дофамин и норадреналин — катехоламины, синтезируются из тирозина. Они
+    разрушаются
+    <span class="term">моноаминоксидазой (МАО)</span> и участвуют в регуляции
+    настроения, мотивации, движения и стресса.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h4>Дофамин</h4>
+      <p>
+        Участвует в системе вознаграждения, мотивации, обучении, контроле
+        движений. Рецепторы D₁–D₅ — все GPCR. Нарушения дофаминовой передачи
+        связаны с болезнью Паркинсона, шизофренией, зависимостями.
+      </p>
+    </div>
+    <div class="card">
+      <h4>Норадреналин</h4>
+      <p>
+        Основной медиатор симпатической нервной системы, участвует в
+        бодрствовании, внимании, реакции «бей или беги». Рецепторы α и β — GPCR.
+        Выделяется из голубого пятна (locus coeruleus).
+      </p>
+    </div>
+  </div>
+
+  <p>
+    Вместе с серотонином дофамин и норадреналин образуют «моноаминовую триаду»,
+    дисбаланс которой связан с депрессивными расстройствами. При лечении
+    депрессии пытаются выявить, какой именно медиатор вышел из строя, и уже
+    после этого подбирать терапию.
+  </p>
+
+  <div class="note">
+    <strong>Антидепрессанты:</strong> первые мощные препараты — трициклические
+    антидепрессанты — блокировали МАО, из-за чего медиаторы не разрушались в
+    синапсе, их концентрация росла, и настроение улучшалось. Однако при отмене
+    возникала тяжёлая депрессия, поэтому сейчас препараты отпускаются по рецепту
+    и отменяются постепенно, со снижением дозы.
+  </div>
+</section>
+
+<section id="glutamate">
+  <h2>Глутамат — главный возбуждающий медиатор</h2>
+  <p>
+    <span class="term">Глутамат</span> — основная возбуждающая аминокислота ЦНС.
+    Около 30% глутаматергических синапсов в мозге. Глутамат синтезируется из
+    глутамина: глутамин → глутамат → глутамат высвобождается. Удаляется из щели
+    путём захвата астроцитами, где превращается обратно в глутамин.
+  </p>
+
+  <h3>Рецепторы глутамата</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Семейство</th>
+          <th>Тип</th>
+          <th>Особенности</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AMPA</td>
+          <td>Ионотропный</td>
+          <td>Быстрый возбуждающий ток Na⁺/K⁺; основной «рабочий» рецептор.</td>
+        </tr>
+        <tr>
+          <td>Кайнат</td>
+          <td>Ионотропный</td>
+          <td>
+            Агонист — каиновая кислота; может вызывать судороги у животных.
+          </td>
+        </tr>
+        <tr>
+          <td>NMDA</td>
+          <td>Ионотропный</td>
+          <td>
+            Требует глутамат + глицин + деполяризацию; пропускает Ca²⁺;
+            блокируется Mg²⁺.
+          </td>
+        </tr>
+        <tr>
+          <td>mGluR</td>
+          <td>Метаботропный (GPCR)</td>
+          <td>Модуляция синаптической передачи, медленные эффекты.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>NMDA-рецептор: сложная активация</h3>
+  <p>
+    <span class="term">NMDA-рецептор</span> — уникальный пример рецептора, для
+    активации которого нужно одновременно несколько условий:
+  </p>
+  <ul>
+    <li>связывание <strong>глутамата</strong>;</li>
+    <li>связывание <strong>глицина</strong> как ко-агониста;</li>
+    <li>
+      <strong>деполяризация</strong> мембраны, чтобы выбить магниевую пробку из
+      канала.
+    </li>
+  </ul>
+
+  <div class="equation">
+    Глутамат + глицин + деполяризация → удаление Mg²⁺ → открытие
+    Ca²⁺-проницаемого канала
+  </div>
+
+  <p>
+    В норме канал закрыт ионом Mg²⁺ («магниевая пробка»). Даже если глутамат и
+    глицин сели на рецептор, без деполяризации магний остаётся в канале и ионы
+    не проходят. Когда приходит ВПСП и мембрана деполяризуется, магний вылетает,
+    и канал открывается. После этого какое-то время рецептор может
+    активироваться просто глутаматом, пока магний не вернётся на место.
+  </p>
+
+  <div class="note">
+    <strong>Долговременная потенциация (LTP):</strong> повторная активация
+    NMDA-рецепторов облегчает проведение сигнала. Это клеточная основа
+    краткосрочной памяти. Возврат магния занимает 6–8 часов; чем ближе повторный
+    сигнал к первому, тем легче он проходит.
+  </div>
+
+  <div class="warning">
+    <strong>Эксцитотоксичность:</strong> избыток глутамата приводит к массивному
+    входу Ca²⁺ в клетку, выбросу ещё большего количества глутамата,
+    перевозбуждению нейронов и их гибели. Это механизм повреждения при инсульте,
+    травме, эпилепсии.
+  </div>
+</section>
+
+<section id="gaba-glycine">
+  <h2>ГАМК и глицин — тормозные медиаторы</h2>
+
+  <h3>ГАМК (γ-аминомасляная кислота)</h3>
+  <p>
+    <span class="term">ГАМК</span> — основной тормозный медиатор ЦНС. Примерно
+    половина мозга работает на ГАМК. Синтезируется из глутамата: глутамин →
+    глутамат → ГАМК. Удаляется путём захвата и метаболизма в митохондриях.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h4>ГАМК-А рецептор</h4>
+      <p>
+        Пятисубъединичный ионотропный Cl⁻-канал. При открытии хлор входит в
+        клетку, мембрана гиперполяризуется, возбудимость снижается. Имеет
+        множество модуляторных сайтов.
+      </p>
+    </div>
+    <div class="card">
+      <h4>ГАМК-Б рецептор</h4>
+      <p>
+        GPCR, связанный с G-белками. Медленные тормозные эффекты, модуляция
+        каналов и аденилатциклазы.
+      </p>
+    </div>
+  </div>
+
+  <h3>Модуляторы ГАМК-А рецептора</h3>
+  <p>
+    ГАМК-А — один из самых «богатых» на модуляторы рецепторов. Помимо агонистов
+    и блокаторов, у него есть множество сайтов, куда садятся вещества,
+    изменяющие активность канала.
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Вещество</th>
+          <th>Роль</th>
+          <th>Эффект</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ГАМК</td>
+          <td>Агонист</td>
+          <td>Открывает Cl⁻-канал, тормозит.</td>
+        </tr>
+        <tr>
+          <td>Бикукуллин, пикротоксин</td>
+          <td>Блокаторы</td>
+          <td>Закрывают канал, вызывают судороги.</td>
+        </tr>
+        <tr>
+          <td>Этанол</td>
+          <td>Модулятор</td>
+          <td>
+            Двухфазно: малые дозы — укорочение открытия, большие — увеличение
+            частоты.
+          </td>
+        </tr>
+        <tr>
+          <td>Барбитураты, бензодиазепины</td>
+          <td>Модуляторы</td>
+          <td>
+            Усиливают Cl⁻-ток, вызывают седацию, сон, противосудорожный эффект.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Двухфазное действие этанола</h4>
+  <p>
+    Малые дозы этанола укорачивают время открытия ГАМК-А рецепторов → торможение
+    слабеет → возбудимость мозга растёт → фаза «опьянения»: человек активен,
+    весел, танцует. При увеличении концентрации частота открытия растёт,
+    суммарный Cl⁻-ток увеличивается → глубочайшее торможение → человек засыпает.
+    Это объясняет, почему алкоголики могут замерзнуть на улице: они не чувствуют
+    холода и не могут активироваться.
+  </p>
+
+  <h3>Глицин</h3>
+  <p>
+    <span class="term">Глицин</span> — тормозный нейромедиатор спинного мозга.
+    Рецептор один — ионотропный Cl⁻-канал. Блокируется
+    <span class="term">стрихнином</span> (яд дерева чилибухи). Глицин участвует
+    в возвратном торможении мотонейронов и в реципрокном торможении
+    мышц-антагонистов при локомоции.
+  </p>
+
+  <div class="warning">
+    <strong>Столбнячный токсин:</strong> попадает в окончание аксона,
+    транспортируется в сому, затем высвобождается и блокирует высвобождение
+    глицина и ГАМК. В результате торможение нарушается, возникают судороги. Это
+    пример того, как токсин вмешивается в синаптическую передачу.
+  </div>
+
+  <div class="note">
+    <strong>Глицин в таблетках:</strong> глицин, принятый внутрь, всасывается в
+    ЖКТ, но в мозг практически не проникает из-за гематоэнцефалического барьера.
+    Поэтому «разгрузить нервную систему» глицином из аптеки не так просто, как
+    кажется.
+  </div>
+</section>
+
+<section id="nonclassical">
+  <h2>Неклассические нейромедиаторы</h2>
+
+  <h3>Гистамин</h3>
+  <p>
+    <span class="term">Гистамин</span> образуется из гистидина. Известен прежде
+    всего как медиатор аллергии и стимулятор кислотообразования в желудке, но
+    также работает в ЦНС.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h4>Рецепторы</h4>
+      <p>
+        H₁ — аллергия, зуд, сосуды; H₂ — желудочная секреция; H₃ —
+        пресинаптический ауторецептор, обратная связь. В ЦНС гистамин повышает
+        возбудимость.
+      </p>
+    </div>
+    <div class="card">
+      <h4>Почему неклассический</h4>
+      <p>
+        Синаптические щели с гистамином очень широкие (300–400 нм вместо обычных
+        20–50 нм). Медиатор успевает «уплыть» и подействовать на соседние клетки
+        — действие не строго локальное.
+      </p>
+    </div>
+  </div>
+
+  <h3>Опиоидные пептиды</h3>
+  <p>
+    <span class="term">Опиоидные пептиды</span> (эндорфины, энкефалины,
+    динорфины) синтезируются в соме нейрона, упаковываются в везикулы и
+    транспортируются к окончанию. Они пресинаптически тормозят болевые сигналы и
+    формируют болевой порог.
+  </p>
+
+  <ul>
+    <li>действуют через GPCR (μ, δ, κ);</li>
+    <li>
+      снижают передачу болевых сигналов: слабые стимулы «отсекаются», сильные —
+      проходят;
+    </li>
+    <li>вызывают обезболивание, эйфорию, сонливость;</li>
+    <li>
+      предшественник — проопиомеланокортин, из которого вырезаются разные
+      активные пептиды.
+    </li>
+  </ul>
+
+  <div class="warning">
+    <strong>Опиаты и зависимость:</strong> морфий и его производные — самые
+    мощные обезболивающие, но вызывают быстрое привыкание. При отмене возникает
+    «ломка»: боль, судороги, риск переломов. Поэтому морфий применяют строго по
+    показаниям, часто — у терминальных больных для улучшения качества жизни.
+  </div>
+
+  <h3>Эндоканнабиноиды</h3>
+  <p>
+    <span class="term">Эндоканнабиноиды</span> (анандамид,
+    2-арахидоноилглицерин) образуются из арахидоновой кислоты. Действуют на
+    рецепторы CB₁ и CB₂ (GPCR) — те же, на которые действует действующее
+    вещество марихуаны (ТГК).
+  </p>
+
+  <div class="note">
+    <strong>Ретроградная передача:</strong> эндоканнабиноиды синтезируются в
+    постсинаптической мембране и действуют на пресинапс, тормозя высвобождение
+    нейромедиатора. Это «обратный» сигнал: постсинапс говорит пресинапсу,
+    сколько медиатора выделять.
+  </div>
+</section>
+
+<section id="neuro-summary">
+  <h2>Сводка по нейромедиаторам</h2>
+  <div class="grid">
+    <div class="card">
+      <h4>Возбуждающие</h4>
+      <p>
+        <span class="badge">глутамат</span>
+        <span class="badge">ацетилхолин (в нервно-мышечном синапсе)</span>
+        <span class="badge">гистамин (H₁)</span>
+      </p>
+    </div>
+    <div class="card">
+      <h4>Тормозные</h4>
+      <p>
+        <span class="badge rose">ГАМК</span>
+        <span class="badge rose">глицин</span>
+        <span class="badge rose">опиоидные пептиды</span>
+      </p>
+    </div>
+    <div class="card full">
+      <h4>Модулирующие</h4>
+      <p>
+        <span class="badge sand">серотонин</span>
+        <span class="badge sand">дофамин</span>
+        <span class="badge sand">норадреналин</span>
+        <span class="badge sand">эндоканнабиноиды</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="remember">
+    <strong>К экзамену:</strong> серотонин — из триптофана, МАО,
+    сон/настроение/тромбоциты; глутамат — главный возбуждающий, NMDA требует
+    глутамат + глицин + деполяризацию; ГАМК — главный тормозный, ГАМК-А —
+    Cl⁻-канал, модулируется этанолом и бензодиазепинами; глицин — тормозный в
+    спинном мозге, блокируется стрихнином; опиоиды — болевой порог;
+    эндоканнабиноиды — ретроградная передача.
+  </div>
+</section>
+
+<!-- ЧАСТЬ 3 -->
+<footer class="footer">
+  Часть 2 завершена. Чтобы продолжить, напишите <span class="kbd">дальше</span>.
+  Следующий фрагмент: нервно-мышечная передача, миастения гравис,
+  электромеханическое сопряжение, строение саркомера, актин, миозин, тропонин и
+  кальций.
+</footer>
+<!-- ============================================================ -->
+<!-- ЧАСТЬ 3. НЕРВНО-МЫШЕЧНАЯ ПЕРЕДАЧА И МЫШЦА                    -->
+<!-- ============================================================ -->
+
+<section id="nmj">
+  <h2>Нервно-мышечный синапс</h2>
+  <p>
+    <span class="term">Нервно-мышечный синапс</span> — это синапс между
+    окончанием мотонейрона и скелетной мышцей. По сути это конечный пункт
+    передачи сигнала: мышца получает команду и отвечает сокращением, но никуда
+    дальше сигнал не передаёт. Поэтому мембрана мышцы в области синапса
+    называется <span class="term">концевой пластинкой</span> — это «конец
+    нервного пути».
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h4>Строение</h4>
+      <p>
+        Пресинаптическое окончание мотонейрона содержит везикулы с
+        ацетилхолином. Постсинаптическая мембрана мышцы образует глубокие
+        <span class="term">инвагинации</span> — складки, увеличивающие площадь
+        поверхности. Чем больше площадь, тем больше никотиновых рецепторов и тем
+        мощнее ответ.
+      </p>
+    </div>
+    <div class="card">
+      <h4>Медиатор</h4>
+      <p>
+        <span class="term">Ацетилхолин</span> выделяется в синаптическую щель,
+        связывается с никотиновыми холинорецепторами на концевой пластинке.
+        Затем быстро разрушается <span class="term">ацетилхолинэстеразой</span>,
+        чтобы сигнал не затягивался.
+      </p>
+    </div>
+  </div>
+
+  <h3>Никотиновый рецептор</h3>
+  <p>
+    <span class="term">Никотиновый холинорецептор</span> — ионотропный канал,
+    состоящий из субъединиц α, β, γ, δ (в зрелом рецепторе — α, β, δ, ε). Именно
+    в α-субъединицах находится сайт связывания ацетилхолина. При связывании двух
+    молекул ацетилхолина канал открывается.
+  </p>
+
+  <div class="equation">
+    Ацетилхолин + никотиновый рецептор → открытие канала → Na⁺ внутрь →
+    деполяризация концевой пластинки
+  </div>
+
+  <p>
+    Канал потенциально проницаем и для калия, но в физиологических условиях
+    натрий «хочет» внутрь сильнее, чем калий — наружу. Поэтому преобладает
+    входящий ток Na⁺, мембрана деполяризуется, возникает
+    <span class="term">потенциал концевой пластинки (ПКП)</span>.
+  </p>
+
+  <div class="note">
+    <strong>Особенность мышцы:</strong> потенциал покоя скелетной мышцы около
+    −90 мВ — выше, чем у многих нейронов. Это создаёт большой запас для
+    деполяризации и повышает надёжность передачи. Амплитуда ПКП большая, поэтому
+    даже при некотором снижении числа рецепторов сигнал может достичь порога.
+  </div>
+
+  <h3>От ПКП к потенциалу действия</h3>
+  <p>
+    ПКП распространяется по концевой пластинке с затуханием, но если
+    деполяризация достигает порога, открываются потенциал-зависимые Na⁺-каналы в
+    соседней мембране мышечного волокна. Возникает потенциал действия, который
+    распространяется по сарколемме и Т-трубочкам вглубь волокна.
+  </p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <strong>1.</strong> ПД приходит в пресинаптическое окончание.
+    </div>
+    <div class="timeline-item">
+      <strong>2.</strong> Открываются Ca²⁺-каналы, Ca²⁺ входит в окончание.
+    </div>
+    <div class="timeline-item">
+      <strong>3.</strong> Везикулы с ацетилхолином сливаются с мембраной,
+      медиатор выделяется в щель.
+    </div>
+    <div class="timeline-item">
+      <strong>4.</strong> Ацетилхолин связывается с никотиновыми рецепторами,
+      открываются каналы.
+    </div>
+    <div class="timeline-item">
+      <strong>5.</strong> Na⁺ входит, возникает ПКП, затем ПД мышцы.
+    </div>
+    <div class="timeline-item">
+      <strong>6.</strong> Ацетилхолинэстераза разрушает ацетилхолин, рецепторы
+      освобождаются.
+    </div>
+  </div>
+
+  <h3>Миастения гравис</h3>
+  <p>
+    <span class="term">Миастения гравис</span> — аутоиммунное заболевание, при
+    котором антитела блокируют никотиновые рецепторы концевой пластинки. Нервная
+    система посылает сигнал, но мышца не получает его в достаточном объёме: ПКП
+    снижается, ПД может не возникать, и мышца не сокращается или сокращается
+    слабо.
+  </p>
+
+  <div class="warning">
+    <strong>Симптомы:</strong> слабость, быстрая утомляемость мышц, особенно
+    после нагрузки; могут страдать мышцы глаз, лица, глотания, дыхания. В
+    тяжёлых случаях — опасность дыхательной недостаточности.
+  </div>
+
+  <p>
+    Лечение включает
+    <span class="term">конкурентные блокаторы ацетилхолинэстеразы</span>:
+    ацетилхолин разрушается медленнее, дольше остаётся в щели, успевает
+    связываться с уцелевшими рецепторами, амплитуда ПКП возрастает, и мышца
+    снова может сокращаться.
+  </p>
+
+  <div class="remember">
+    <strong>Ключ к миастении:</strong> проблема не в нерве, а в рецепторах.
+    Ацетилхолин есть, но рецепторы заблокированы антителами. Решение — продлить
+    жизнь ацетилхолину в щели.
+  </div>
+</section>
+
+<section id="ec-coupling">
+  <h2>Электромеханическое сопряжение</h2>
+  <p>
+    <span class="term">Электромеханическое сопряжение</span> — это цепочка
+    событий, которая превращает потенциал действия мышцы в механическое
+    сокращение. Ключевой посредник — <span class="term">Ca²⁺</span>.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h4>Последовательность</h4>
+      <p>
+        ПД распространяется по сарколемме и Т-трубочкам → активируются
+        потенциал-зависимые Ca²⁺-каналы саркоплазматического ретикулума → Ca²⁺
+        выходит в цитоплазму → связывается с тропонином C → тропониновый
+        комплекс смещается → открываются участки связывания миозина на актине →
+        сокращение.
+      </p>
+    </div>
+    <div class="card">
+      <h4>Расслабление</h4>
+      <p>
+        Когда ПД прекращается, Ca²⁺ закачивается обратно в саркоплазматический
+        ретикулум (Ca²⁺-АТФазой). Концентрация Ca²⁺ падает, тропонин C
+        освобождается, тропомиозин снова закрывает актин, миозин отсоединяется —
+        мышца расслабляется.
+      </p>
+    </div>
+  </div>
+
+  <div class="equation">
+    ПД → Ca²⁺ из СР → Ca²⁺ + тропонин C → смещение тропомиозина →
+    актин-миозиновое взаимодействие → сокращение
+  </div>
+</section>
+
+<section id="sarcomere">
+  <h2>Строение саркомера</h2>
+  <p>
+    Скелетная мышца состоит из мышечных волокон, а волокна — из миофибрилл,
+    разделённых на
+    <span class="term">саркомеры</span>. Саркомер — структурно-функциональная
+    единица сокращения. Его границы — <span class="term">Z-диски</span>.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h4>Актин</h4>
+      <p>
+        Тонкие филаменты. Глобулярный актин (G-актин) полимеризуется в
+        фибриллярный (F-актин). На актине есть участки, за которые может
+        цепляться миозин, но в покое они прикрыты тропомиозином.
+      </p>
+    </div>
+    <div class="card">
+      <h4>Миозин</h4>
+      <p>
+        Толстые филаменты. Молекула имеет головку (с АТФазной активностью),
+        шейку и хвост. Хвосты полимеризуются, головки торчат в стороны и могут
+        связываться с актином.
+      </p>
+    </div>
+    <div class="card full">
+      <h4>Вспомогательные белки</h4>
+      <p>
+        <span class="term">Тропомиозин</span> — спиральный белок, который в
+        покое закрывает участки связывания миозина на актине.
+        <span class="term">Тропониновый комплекс</span> — три субъединицы:
+        тропонин T (связывает тропомиозин), тропонин C (связывает Ca²⁺),
+        тропонин I (ингибиторная, удерживает тропомиозин в блокирующем
+        положении). <span class="term">Титин</span> — гигантский белок,
+        прикрепляющий миозин к Z-диску и обеспечивающий упругость.
+      </p>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Пространственная организация:</strong> в поперечном сечении каждый
+    миозиновый филамент окружён шестью актиновыми — образуется упорядоченная
+    гексагональная решётка. Такая геометрия обеспечивает эффективное
+    взаимодействие головок миозина с актином.
+  </div>
+</section>
+
+<section id="sliding-filaments">
+  <h2>Скользящие филаменты и цикл миозина</h2>
+  <p>
+    Согласно <span class="term">теории скользящих филаментов</span>, при
+    сокращении актиновые филаменты скользят вдоль миозиновых, и саркомер
+    укорачивается. Длина самих филаментов при этом не меняется — меняется
+    степень их перекрытия.
+  </p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <strong>1. Прикрепление.</strong> Головка миозина связывается с открытым
+      участком актина.
+    </div>
+    <div class="timeline-item">
+      <strong>2. Поворот головки (power stroke).</strong> Головка наклоняется и
+      тянет актиновый филамент.
+    </div>
+    <div class="timeline-item">
+      <strong>3. Отсоединение.</strong> Связывается АТФ, головка отделяется от
+      актина.
+    </div>
+    <div class="timeline-item">
+      <strong>4. Ре cocking.</strong> Гидролиз АТФ возвращает головку в исходное
+      положение; цикл повторяется.
+    </div>
+  </div>
+
+  <div class="warning">
+    <strong>АТФ нужен не только для сокращения, но и для расслабления.</strong>
+    Без АТФ головки миозина не могут отсоединиться от актина — развивается
+    <span class="term">трупное окоченение</span>
+    (rigor mortis). Поэтому после смерти мышцы сначала расслабляются (АТФ ещё
+    есть), затем становятся жёсткими, когда АТФ исчерпывается.
+  </div>
+
+  <h3>Регуляция кальцием</h3>
+  <p>
+    При повышении концентрации Ca²⁺ в цитоплазме ионы связываются с тропонином
+    C. Тропониновый комплекс меняет конформацию, смещает тропомиозин и открывает
+    участки связывания на актине. Миозин может прикрепляться и запускать цикл.
+    Когда Ca²⁺ падает, тропомиозин возвращается в блокирующее положение —
+    сокращение прекращается.
+  </p>
+
+  <div class="equation">
+    [Ca²⁺]↑ → Ca²⁺–тропонин C → смещение тропомиозина → актин открыт →
+    сокращение
+  </div>
+</section>
+
+<section id="muscle-types">
+  <h2>Типы мышечной ткани и общие замечания</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Тип</th>
+          <th>Регуляция</th>
+          <th>Особенности</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Скелетная</td>
+          <td>Через тропонин-тропомиозин, Ca²⁺ из СР</td>
+          <td>
+            Многоядерные волокна, исчерченность, произвольный контроль через
+            мотонейроны.
+          </td>
+        </tr>
+        <tr>
+          <td>Сердечная</td>
+          <td>Через тропонин, Ca²⁺ из СР и внеклеточной среды</td>
+          <td>
+            Клетки соединены вставочными дисками, автоматизм, работа без
+            утомления.
+          </td>
+        </tr>
+        <tr>
+          <td>Гладкая</td>
+          <td>Через кальмодулин и киназу лёгких цепей миозина</td>
+          <td>Нет саркомеров, медленное сокращение, вегетативная регуляция.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <strong>Актин и миозин есть в любой живой клетке</strong> — это обычные
+    белки цитоскелета. В мышечных клетках просто особенно сильно развит их
+    особый подтип и вспомогательные белки.
+  </div>
+</section>
+
+<section id="clinical-nmj">
+  <h2>Клинически важные состояния нервно-мышечной передачи</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h4>Миастения гравис</h4>
+      <p>
+        Аутоиммунная блокада никотиновых рецепторов. Лечение — ингибиторы
+        ацетилхолинэстеразы, иммуносупрессия, в тяжёлых случаях — плазмаферез.
+      </p>
+    </div>
+    <div class="card">
+      <h4>Ботулизм</h4>
+      <p>
+        Токсин блокирует высвобождение ацетилхолина из пресинаптического
+        окончания. Развивается вялый паралич. Это противоположность столбнячному
+        токсину, который блокирует торможение.
+      </p>
+    </div>
+    <div class="card">
+      <h4>Кураре</h4>
+      <p>
+        Конкурентный антагонист никотиновых рецепторов. Вызывает расслабление
+        скелетных мышц; исторически использовался в хирургии. Действие снимается
+        ингибиторами ацетилхолинэстеразы.
+      </p>
+    </div>
+    <div class="card">
+      <h4>Столбняк</h4>
+      <p>
+        Столбнячный токсин блокирует высвобождение глицина и ГАМК, нарушая
+        торможение. Возникают судороги и мышечная ригидность. Противоположность
+        ботулизму по механизму.
+      </p>
+    </div>
+  </div>
+
+  <div class="remember">
+    <strong>Сравнение:</strong> кураре → блокирует рецепторы → расслабление;
+    ботулотоксин → блокирует выделение ацетилхолина → расслабление; столбнячный
+    токсин → блокирует торможение → судороги; стрихнин → блокирует глициновые
+    рецепторы → судороги; миастения → аутоиммунная блокада рецепторов →
+    слабость.
+  </div>
+</section>
+
+<section id="final-summary">
+  <h2>Итоговая сводка по всем трём блокам</h2>
+
+  <h3>Ферменты</h3>
+  <ul>
+    <li>Снижают энергию активации, не меняют ΔG.</li>
+    <li>
+      Активный центр: связывание + катализ; отдельно — регуляторный
+      (аллостерический) сайт.
+    </li>
+    <li>Специфичность: абсолютная, групповая, стереоспецифичность.</li>
+    <li>
+      Кофакторы: металлы, витамины, простетические группы; без них фермент может
+      не работать.
+    </li>
+    <li>
+      Механизмы катализа: кислотно-основной, ковалентный, металлозависимый.
+    </li>
+    <li>Сопряжение с АТФ позволяет идти эндергоническим реакциям.</li>
+  </ul>
+
+  <h3>Нейромедиаторы</h3>
+  <ul>
+    <li>
+      Серотонин: из триптофана, МАО, сон, настроение, сенсорная фильтрация,
+      тромбоциты.
+    </li>
+    <li>Дофамин и норадреналин: мотивация, движение, бодрствование, стресс.</li>
+    <li>
+      Глутамат: главный возбуждающий; NMDA требует глутамат + глицин +
+      деполяризацию.
+    </li>
+    <li>
+      ГАМК: главный тормозный ЦНС; ГАМК-А — Cl⁻-канал, модулируется этанолом,
+      бензодиазепинами.
+    </li>
+    <li>
+      Глицин: тормозный в спинном мозге, блокируется стрихнином, ко-агонист
+      NMDA.
+    </li>
+    <li>
+      Гистамин, опиоиды, эндоканнабиноиды — неклассические медиаторы с особыми
+      механизмами.
+    </li>
+  </ul>
+
+  <h3>Нервно-мышечная передача</h3>
+  <ul>
+    <li>Ацетилхолин → никотиновые рецепторы → ПКП → ПД мышцы.</li>
+    <li>Миастения гравис — аутоиммунная блокада рецепторов.</li>
+    <li>
+      Электромеханическое сопряжение: ПД → Ca²⁺ из СР → тропонин C → открытие
+      актина.
+    </li>
+    <li>
+      Саркомер: актин, миозин, тропомиозин, тропонин, титин; Z-диски — границы.
+    </li>
+    <li>
+      Скользящие филаменты: головки миозина тянут актин, длина филаментов не
+      меняется.
+    </li>
+    <li>
+      АТФ нужен и для сокращения, и для расслабления (отсоединение миозина).
+    </li>
+  </ul>
+
+  <div class="remember">
+    <strong>Сквозная логика:</strong> ферменты обеспечивают химические
+    превращения; нейромедиаторы передают сигнал между клетками; нервно-мышечный
+    синапс и электромеханическое сопряжение превращают электрический сигнал в
+    механический ответ. В каждом звене есть точки регуляции и клинически
+    значимые поломки.
+  </div>
+</section>
+
+<footer class="footer">
+  Конспект завершён. Все три части объединены в один HTML-документ: вставьте
+  части 2 и 3 в соответствующие места перед комментариями
+  <span class="kbd">&lt;!-- ЧАСТЬ 2 --&gt;</span> и
+  <span class="kbd">&lt;!-- ЧАСТЬ 3 --&gt;</span>. Если нужно, могу подготовить
+  печатную версию, версию без внешних шрифтов или разбить материал на отдельные
+  страницы.
+</footer>
+<!-- ============================================================ -->
+<!-- ЧАСТЬ 4. РАСШИРЕННЫЙ БЛОК: КИНЕТИКА И ИНГИБИРОВАНИЕ ФЕРМЕНТОВ -->
+<!-- ============================================================ -->
+
+<section id="kinetics">
+  <h2>Кинетика ферментативных реакций</h2>
+  <p>
+    Кинетика описывает, как скорость ферментативной реакции зависит от
+    концентрации субстрата, фермента, температуры, pH и наличия ингибиторов. Это
+    важно не только для теории, но и для понимания действия лекарств, ядов и
+    метаболических нарушений.
+  </p>
+
+  <h3>Кривая зависимости скорости от концентрации субстрата</h3>
+  <p>
+    Если постепенно увеличивать концентрацию субстрата [S] при постоянной
+    концентрации фермента, начальная скорость реакции
+    <span class="term">v₀</span> растёт не линейно, а выходит на плато. При
+    низких [S] скорость почти пропорциональна [S] (реакция первого порядка по
+    субстрату). При высоких [S] все активные центры заняты, и скорость достигает
+    максимума <span class="term">Vmax</span> (реакция нулевого порядка по
+    субстрату).
+  </p>
+
+  <div class="equation">v₀ = (Vmax · [S]) / (Km + [S])</div>
+
+  <p>
+    Это уравнение <span class="term">Михаэлиса — Ментен</span>. Оно описывает
+    простейший случай: один субстрат, один фермент, быстрое установление
+    равновесия между E, S и ES, и медленный каталитический шаг. В реальных
+    клетках кинетика часто сложнее, но это уравнение остаётся базовой моделью.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h4>Km — константа Михаэлиса</h4>
+      <p>
+        Концентрация субстрата, при которой скорость реакции равна половине
+        Vmax.
+        <span class="term">Km</span> отражает сродство фермента к субстрату: чем
+        меньше Km, тем выше сродство (ферменту нужно меньше субстрата, чтобы
+        достичь половинной скорости).
+      </p>
+    </div>
+    <div class="card">
+      <h4>Vmax</h4>
+      <p>
+        Максимальная скорость при насыщении фермента субстратом. Зависит от
+        концентрации фермента и от каталитической константы
+        <span class="term">kcat</span> (числа оборотов): сколько молекул
+        субстрата одна молекула фермента превращает в единицу времени.
+      </p>
+    </div>
+    <div class="card">
+      <h4>kcat / Km</h4>
+      <p>
+        Мера каталитической эффективности фермента. Чем выше это отношение, тем
+        «лучше» фермент работает при низких концентрациях субстрата. Для
+        идеальных ферментов оно приближается к пределу диффузии.
+      </p>
+    </div>
+    <div class="card">
+      <h4>Число оборотов</h4>
+      <p>
+        Показывает, сколько молекул субстрата превращается одной молекулой
+        фермента за секунду. Например, карбоангидраза — один из самых быстрых
+        ферментов, у неё число оборотов достигает сотен тысяч в секунду.
+      </p>
+    </div>
+  </div>
+
+  <h3>График Лайнуивера — Бёрка</h3>
+  <p>
+    Для удобства анализа уравнение Михаэлиса — Ментен преобразуют в линейную
+    форму:
+  </p>
+  <div class="equation">1/v₀ = (Km / Vmax) · (1/[S]) + 1/Vmax</div>
+  <p>
+    Если построить график зависимости 1/v₀ от 1/[S], получится прямая. Точка
+    пересечения с осью ординат даёт 1/Vmax, с осью абсцисс — −1/Km. По этому
+    графику удобно определять тип ингибирования.
+  </p>
+
+  <div class="note">
+    <strong>Ограничение:</strong> график Лайнуивера — Бёрка чувствителен к
+    ошибкам при низких концентрациях субстрата. Поэтому на практике используют и
+    другие линеаризации — Эди — Хофсти, Хейнса — Вулфа, а также нелинейную
+    регрессию.
+  </div>
+</section>
+
+<section id="inhibition">
+  <h2>Ингибирование ферментов</h2>
+  <p>
+    <span class="term">Ингибитор</span> — вещество, которое снижает скорость
+    ферментативной реакции. Ингибирование может быть обратимым и необратимым,
+    конкурентным и неконкурентным. Понимание этих механизмов важно для
+    фармакологии: многие лекарства — именно ингибиторы ферментов.
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Тип</th>
+          <th>Механизм</th>
+          <th>Влияние на Km</th>
+          <th>Влияние на Vmax</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Конкурентное</td>
+          <td>Ингибитор похож на субстрат и связывается в активном центре.</td>
+          <td>Km растёт</td>
+          <td>Не меняется</td>
+          <td>Метотрексат — ингибитор дигидрофолатредуктазы.</td>
+        </tr>
+        <tr>
+          <td>Неконкурентное</td>
+          <td>
+            Ингибитор связывается вне активного центра и меняет конформацию.
+          </td>
+          <td>Не меняется</td>
+          <td>Снижается</td>
+          <td>Тяжёлые металлы, аллостерические ингибиторы.</td>
+        </tr>
+        <tr>
+          <td>Бесконкурентное</td>
+          <td>Ингибитор связывается только с комплексом ES.</td>
+          <td>Снижается</td>
+          <td>Снижается</td>
+          <td>Редкий тип; встречается у некоторых ферментов.</td>
+        </tr>
+        <tr>
+          <td>Необратимое</td>
+          <td>Ингибитор ковалентно модифицирует фермент.</td>
+          <td>—</td>
+          <td>Снижается необратимо</td>
+          <td>Аспирин — ацетилирует циклооксигеназу.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Конкурентное ингибирование</h3>
+  <p>
+    Ингибитор структурно похож на субстрат и конкурирует с ним за активный
+    центр. При увеличении концентрации субстрата ингибирование можно преодолеть:
+    Vmax достигается, но требуется больше субстрата, поэтому Km растёт.
+    Классический пример — сульфаниламиды, которые конкурируют с
+    парааминобензойной кислотой (ПАБК) в синтезе фолиевой кислоты у бактерий.
+  </p>
+
+  <h3>Неконкурентное ингибирование</h3>
+  <p>
+    Ингибитор связывается с аллостерическим сайтом и меняет конформацию фермента
+    так, что катализ затрудняется. Сродство к субстрату может не меняться (Km
+    тот же), но максимальная скорость падает (Vmax снижается). Увеличение
+    концентрации субстрата не помогает.
+  </p>
+
+  <h3>Необратимое ингибирование</h3>
+  <p>
+    Ингибитор образует ковалентную связь с ферментом и необратимо его
+    инактивирует. Пример — аспирин, который ацетилирует серин в активном центре
+    циклооксигеназы. Действие аспирина длится до синтеза новых молекул фермента,
+    поэтому его принимают не чаще определённого интервала.
+  </p>
+
+  <div class="remember">
+    <strong>Мнемоника:</strong> конкурентный — «борется за место», Km↑, Vmax не
+    меняется; неконкурентный — «портит инструмент», Km не меняется, Vmax↓;
+    необратимый — «ломает инструмент», восстановление только через синтез нового
+    фермента.
+  </div>
+</section>
+
+<section id="regulation-deep">
+  <h2>Глубже о регуляции ферментов</h2>
+
+  <h3>Аллостерическая регуляция</h3>
+  <p>
+    <span class="term">Аллостерические ферменты</span> — обычно олигомерные
+    белки с несколькими субъединицами. Связывание модулятора в регуляторном
+    сайте вызывает конформационные изменения, которые передаются в активный
+    центр. Кривая зависимости скорости от [S] у таких ферментов не
+    гиперболическая, а <span class="term">S-образная (сигмоидная)</span>:
+    небольшие изменения концентрации субстрата или модулятора вызывают резкий
+    ответ.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h4>Позитивный модулятор (активатор)</h4>
+      <p>
+        Связывается с регуляторным сайтом, стабилизирует активную конформацию,
+        повышает сродство к субстрату, сдвигает кривую влево. Пример —
+        фруктозо-2,6-бисфосфат для фосфофруктокиназы-1.
+      </p>
+    </div>
+    <div class="card">
+      <h4>Негативный модулятор (ингибитор)</h4>
+      <p>
+        Стабилизирует неактивную конформацию, снижает сродство к субстрату,
+        сдвигает кривую вправо. Пример — АТФ и цитрат для той же
+        фосфофруктокиназы-1.
+      </p>
+    </div>
+  </div>
+
+  <h3>Ковалентная модификация</h3>
+  <p>
+    Активность фермента может меняться за счёт присоединения или отщепления
+    химической группы: фосфата, метила, ацетила, убиквитина и др. Наиболее
+    распространена
+    <span class="term">фосфорилирование</span> по остаткам серина, треонина и
+    тирозина.
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Модификация</th>
+          <th>Ферменты</th>
+          <th>Эффект</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Фосфорилирование</td>
+          <td>Киназы / фосфатазы</td>
+          <td>Может активировать или инактивировать</td>
+          <td>Гликогенфосфорилаза</td>
+        </tr>
+        <tr>
+          <td>Ацетилирование</td>
+          <td>Ацетилтрансферазы / деацетилазы</td>
+          <td>Модуляция активности, эпигенетика</td>
+          <td>Гистоны</td>
+        </tr>
+        <tr>
+          <td>Протеолитическое отщепление</td>
+          <td>Протеазы</td>
+          <td>Активация зимогена</td>
+          <td>Пепсиноген → пепсин</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Зимогены</h3>
+  <p>
+    <span class="term">Зимогены</span> — неактивные предшественники ферментов.
+    Они активируются путём ограниченного протеолиза: от белка отщепляется
+    фрагмент, который блокировал активный центр. Это защищает клетку от
+    преждевременного действия фермента. Примеры: пепсиноген → пепсин,
+    трипсиноген → трипсин, химотрипсиноген → химотрипсин, прокаспазы → каспазы в
+    апоптозе.
+  </p>
+
+  <div class="note">
+    <strong>Каскадная активация:</strong> один активный фермент активирует
+    следующий зимоген, тот — следующий, и так далее. Это даёт многократное
+    усиление сигнала. Так работают пищеварительные протеазы, свёртывание крови и
+    комплемент.
+  </div>
+
+  <h3>Компартментализация</h3>
+  <p>
+    Ферменты и субстраты часто разделены мембранами. Например, лизосомальные
+    гидролазы работают только в лизосомах, где pH около 5. Если лизосома
+    повреждается, гидролазы выходят в цитозоль и могут повредить клетку — это
+    один из механизмов клеточной гибели.
+  </p>
+</section>
+
+<section id="coenzymes">
+  <h2>Коферменты и витамины</h2>
+  <p>
+    <span class="term">Коферменты</span> — это низкомолекулярные органические
+    соединения, которые временно связываются с ферментом и участвуют в переносе
+    химических групп или электронов. Многие коферменты — производные витаминов,
+    поэтому авитаминозы сопровождаются нарушениями метаболизма.
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Витамин</th>
+          <th>Кофермент</th>
+          <th>Что переносит</th>
+          <th>Где встречается</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>B₁ (тиамин)</td>
+          <td>Тиаминпирофосфат (TPP)</td>
+          <td>Альдегидные группы</td>
+          <td>Пируватдегидрогеназа, транскетолаза</td>
+        </tr>
+        <tr>
+          <td>B₂ (рибофлавин)</td>
+          <td>FMN, FAD</td>
+          <td>Электроны и протоны</td>
+          <td>Окислительное фосфорилирование, дегидрогеназы</td>
+        </tr>
+        <tr>
+          <td>B₃ (ниацин)</td>
+          <td>NAD⁺, NADP⁺</td>
+          <td>Электроны (гидрид-ион)</td>
+          <td>Гликолиз, цикл Кребса, алкогольдегидрогеназа</td>
+        </tr>
+        <tr>
+          <td>B₅ (пантотеновая кислота)</td>
+          <td>КоА</td>
+          <td>Ацильные группы</td>
+          <td>Цикл Кребса, синтез жирных кислот</td>
+        </tr>
+        <tr>
+          <td>B₆ (пиридоксин)</td>
+          <td>Пиридоксальфосфат (PLP)</td>
+          <td>Аминогруппы</td>
+          <td>Трансаминазы, синтез нейромедиаторов</td>
+        </tr>
+        <tr>
+          <td>B₉ (фолат)</td>
+          <td>Тетрагидрофолат (THF)</td>
+          <td>Одноуглеродные группы</td>
+          <td>Синтез нуклеотидов</td>
+        </tr>
+        <tr>
+          <td>B₁₂ (кобаламин)</td>
+          <td>Аденозилкобаламин, метилкобаламин</td>
+          <td>Метильные группы, водород</td>
+          <td>Синтез метионина, метаболизм жирных кислот</td>
+        </tr>
+        <tr>
+          <td>C (аскорбиновая кислота)</td>
+          <td>Аскорбат</td>
+          <td>Электроны</td>
+          <td>Гидроксилирование пролина в коллагене, антиоксидант</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="warning">
+    <strong>Клинический пример:</strong> недостаточность витамина C (цинга)
+    нарушает гидроксилирование пролина и лизина в коллагене. Сосуды становятся
+    хрупкими, дёсны кровоточат, раны плохо заживают. Недостаточность витамина B₁
+    (бери-бери) нарушает энергетический обмен и работу нервов.
+  </div>
+</section>
+
+<section id="enzyme-classes">
+  <h2>Классы ферментов</h2>
+  <p>
+    Международная классификация делит ферменты на шесть основных классов по типу
+    катализируемой реакции. Каждый класс имеет подклассы и подподклассы, что
+    отражается в номере фермента (EC).
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Класс</th>
+          <th>Что делает</th>
+          <th>Пример</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1. Оксидоредуктазы</td>
+          <td>Перенос электронов (окисление/восстановление).</td>
+          <td>Лактатдегидрогеназа, алкогольдегидрогеназа.</td>
+        </tr>
+        <tr>
+          <td>2. Трансферазы</td>
+          <td>Перенос функциональной группы.</td>
+          <td>Киназы, трансаминазы.</td>
+        </tr>
+        <tr>
+          <td>3. Гидролазы</td>
+          <td>Расщепление связей с участием воды.</td>
+          <td>Протеазы, липазы, ацетилхолинэстераза.</td>
+        </tr>
+        <tr>
+          <td>4. Лиазы</td>
+          <td>
+            Расщепление связей без воды, часто с образованием двойной связи.
+          </td>
+          <td>Альдолаза, декарбоксилаза.</td>
+        </tr>
+        <tr>
+          <td>5. Изомеразы</td>
+          <td>Перестройка молекулы без изменения состава.</td>
+          <td>Фосфоглюкоизомераза.</td>
+        </tr>
+        <tr>
+          <td>6. Лигазы</td>
+          <td>Соединение молекул с использованием АТФ.</td>
+          <td>ДНК-лигаза, синтетазы.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="remember">
+    <strong>Мнемоника:</strong> «Оксид-Транс-Гидро-Лиа-Изо-Лига» — шесть классов
+    по порядку.
+  </div>
+</section>
+
+<!-- ЧАСТЬ 5 -->
+<footer class="footer">
+  Часть 4 завершена. Чтобы продолжить, напишите <span class="kbd">дальше</span>.
+  Следующий фрагмент: расширенный блок по ацетилхолину, холинергической системе,
+  моноаминам и метаболическим путям нейромедиаторов.
+</footer>
+<!-- ============================================================ -->
+<!-- ЧАСТЬ 5. АЦЕТИЛХОЛИН И ХОЛИНЕРГИЧЕСКАЯ СИСТЕМА               -->
+<!-- ============================================================ -->
+
+<section id="acetylcholine">
+  <h2>Ацетилхолин и холинергическая система</h2>
+  <p>
+    <span class="term">Ацетилхолин (АХ)</span> — первый открытый нейромедиатор.
+    Он работает в нервно-мышечных синапсах, в вегетативной нервной системе
+    (парасимпатика и преганглионарные симпатические волокна), а также в ЦНС — в
+    коре, гиппокампе, базальных ганглиях.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h4>Синтез</h4>
+      <p>
+        Ацетилхолин синтезируется из <span class="term">холина</span> и
+        <span class="term">ацетил-КоА</span> ферментом
+        <span class="term">холинацетилтрансферазой (ChAT)</span>. Холин
+        поступает из крови через специальный транспортер. Ацетил-КоА образуется
+        в митохондриях и поступает в цитозоль.
+      </p>
+    </div>
+    <div class="card">
+      <h4>Удаление</h4>
+      <p>
+        Ацетилхолин разрушается
+        <span class="term">ацетилхолинэстеразой (АХЭ)</span> на холин и ацетат.
+        Холин захватывается обратно пресинаптическим окончанием и снова
+        используется для синтеза. Это пример экономии медиатора.
+      </p>
+    </div>
+  </div>
+
+  <div class="equation">Холин + ацетил-КоА → (ChAT) → ацетилхолин + КоА</div>
+  <div class="equation">Ацетилхолин + H₂O → (АХЭ) → холин + ацетат</div>
+
+  <h3>Рецепторы ацетилхолина</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Тип</th>
+          <th>Класс</th>
+          <th>Локализация</th>
+          <th>Эффект</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Никотиновые (N)</td>
+          <td>Ионотропные</td>
+          <td>Нервно-мышечный синапс, ганглии, ЦНС</td>
+          <td>Быстрая деполяризация, возбуждение</td>
+        </tr>
+        <tr>
+          <td>Мускариновые (M₁–M₅)</td>
+          <td>GPCR</td>
+          <td>Гладкие мышцы, сердце, железы, ЦНС</td>
+          <td>Разные эффекты в зависимости от подтипа</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <strong>Названия:</strong> никотиновые рецепторы активируются никотином (из
+    табака), мускариновые — мускарином (из ядовитого гриба мухомора). Это
+    исторические названия, но они до сих пор используются.
+  </div>
+
+  <h3>Фармакология ацетилхолина</h3>
+  <ul>
+    <li>
+      <strong>Агонисты мускариновых рецепторов</strong> (мускарин, пилокарпин) —
+      усиливают парасимпатические эффекты: брадикардия, секреция желез, сужение
+      зрачка, бронхоспазм.
+    </li>
+    <li>
+      <strong>Антагонисты мускариновых рецепторов</strong> (атропин, скополамин)
+      — блокируют парасимпатику: тахикардия, сухость во рту, расширение зрачка.
+    </li>
+    <li>
+      <strong>Ингибиторы ацетилхолинэстеразы</strong> (неостигмин, физостигмин,
+      фосфорорганические соединения) — накапливают АХ, усиливают холинергическую
+      передачу. Применяются при миастении, глаукоме, отравлениях.
+    </li>
+    <li>
+      <strong>Конкурентные блокаторы никотиновых рецепторов</strong> (кураре) —
+      вызывают мышечное расслабление; используются в анестезиологии.
+    </li>
+  </ul>
+
+  <div class="warning">
+    <strong>Отравление фосфорорганикой:</strong> необратимо ингибирует
+    ацетилхолинэстеразу. Ацетилхолин накапливается, возникают спазмы,
+    брадикардия, обильная секреция, судороги и остановка дыхания. Антидоты —
+    атропин (блокирует мускариновые рецепторы) и реактиваторы холинэстеразы
+    (пралидоксим).
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ЧАСТЬ 6. МЕТАБОЛИЗМ И БИОСИНТЕЗ НЕЙРОМЕДИАТОРОВ              -->
+<!-- ============================================================ -->
+
+<section id="neuro-metabolism">
+  <h2>Метаболические пути нейромедиаторов</h2>
+  <p>
+    Синтез нейромедиаторов тесно связан с общим метаболизмом аминокислот. Это
+    объясняет, почему нарушения обмена аминокислот и витаминов могут приводить к
+    неврологическим и психиатрическим симптомам.
+  </p>
+
+  <h3>Серотонин: путь от триптофана</h3>
+  <div class="equation">
+    Триптофан → (триптофангидроксилаза) → 5-гидрокситриптофан → (декарбоксилаза)
+    → серотонин
+  </div>
+  <p>
+    Ключевой фермент — <span class="term">триптофангидроксилаза</span>. Она
+    является лимитирующей стадией синтеза. Серотонин далее может превращаться в
+    <span class="term">мелатонин</span>
+    в шишковидной железе (эпифизе). Мелатонин регулирует циркадные ритмы.
+  </p>
+
+  <div class="note">
+    <strong>Связь с питанием:</strong> триптофан — незаменимая аминокислота,
+    поступает с белковой пищей. При недостатке триптофана снижается синтез
+    серотонина, что может влиять на настроение и сон.
+  </div>
+
+  <h3>Катехоламины: путь от тирозина</h3>
+  <div class="equation">
+    Тирозин → (тирозингидроксилаза) → L-ДОФА → (ДОФА-декарбоксилаза) → дофамин →
+    (дофамин-β-гидроксилаза) → норадреналин → (ФНМТ) → адреналин
+  </div>
+  <p>
+    Лимитирующий фермент — <span class="term">тирозингидроксилаза</span>. Она
+    активируется при стрессе и увеличивает синтез катехоламинов. Дофамин и
+    норадреналин разрушаются МАО и КОМТ (катехол-О-метилтрансферазой).
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Фермент</th>
+          <th>Реакция</th>
+          <th>Кофактор</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Тирозингидроксилаза</td>
+          <td>Тирозин → L-ДОФА</td>
+          <td>Тетрагидробиоптерин (BH₄)</td>
+        </tr>
+        <tr>
+          <td>ДОФА-декарбоксилаза</td>
+          <td>L-ДОФА → дофамин</td>
+          <td>Пиридоксальфосфат (B₆)</td>
+        </tr>
+        <tr>
+          <td>Дофамин-β-гидроксилаза</td>
+          <td>Дофамин → норадреналин</td>
+          <td>Аскорбат (C), медь</td>
+        </tr>
+        <tr>
+          <td>Фенилэтаноламин-N-метилтрансфераза (ФНМТ)</td>
+          <td>Норадреналин → адреналин</td>
+          <td>S-аденозилметионин (SAM)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="warning">
+    <strong>Болезнь Паркинсона:</strong> дегенерация дофаминергических нейронов
+    в <span class="term">чёрной субстанции</span> среднего мозга. Снижение
+    дофамина в стриатуме приводит к тремору, ригидности, брадикинезии. Лечение —
+    L-ДОФА (предшественник дофамина, проникающий через ГЭБ), ингибиторы МАО-Б и
+    КОМТ.
+  </div>
+
+  <h3>ГАМК: путь от глутамата</h3>
+  <div class="equation">
+    Глутамат → (глутаматдекарбоксилаза, GAD) → ГАМК + CO₂
+  </div>
+  <p>
+    Ключевой фермент — <span class="term">глутаматдекарбоксилаза</span>,
+    кофактор — пиридоксальфосфат (витамин B₆). ГАМК удаляется путём захвата и
+    метаболизма в митохондриях через
+    <span class="term">ГАМК-трансаминазу</span> и
+    <span class="term">СУКЦИНАТСЕМИАЛЬДЕГИДДЕГИДРОГЕНАЗУ</span>.
+  </p>
+
+  <div class="note">
+    <strong>Связь с витамином B₆:</strong> при дефиците B₆ снижается синтез
+    ГАМК, что может приводить к повышенной возбудимости и судорогам. Также B₆
+    участвует в синтезе серотонина и катехоламинов.
+  </div>
+
+  <h3>Глицин</h3>
+  <p>
+    Глицин — простейшая аминокислота. В ЦНС он синтезируется из серина ферментом
+    <span class="term">серингидроксиметилтрансферазой</span>. Глицин также
+    участвует в синтезе глутатиона, креатина, порфиринов и пуринов. Это пример
+    аминокислоты с множеством функций.
+  </p>
+
+  <h3>Глутамат и глутамин</h3>
+  <p>
+    Глутамат не проникает через гематоэнцефалический барьер. В мозг поступает
+    глутамин, который в нейронах превращается в глутамат ферментом
+    <span class="term">глутаминазой</span>. После выделения глутамат
+    захватывается астроцитами, где превращается обратно в глутамин ферментом
+    <span class="term">глутаминсинтетазой</span> (с использованием АТФ и
+    аммиака). Этот цикл называется
+    <span class="term">глутамат-глутаминовым циклом</span>.
+  </p>
+
+  <div class="equation">
+    Глутамат + NH₃ + АТФ → (глутаминсинтетаза) → глутамин + АДФ + Pi
+  </div>
+  <div class="equation">Глутамин → (глутаминаза) → глутамат + NH₃</div>
+
+  <div class="remember">
+    <strong>Ключевая идея:</strong> возбуждающие и тормозные медиаторы связаны
+    метаболически. Глутамат → ГАМК → глутамин → глутамат. Поэтому дисбаланс
+    одного пути может влиять на другой.
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ЧАСТЬ 7. ВЕГЕТАТИВНАЯ НЕРВНАЯ СИСТЕМА                        -->
+<!-- ============================================================ -->
+
+<section id="autonomic">
+  <h2>Вегетативная нервная система: ацетилхолин и норадреналин</h2>
+  <p>
+    Вегетативная нервная система регулирует работу внутренних органов. Её делят
+    на
+    <span class="term">симпатическую</span> (мобилизация, «бей или беги») и
+    <span class="term">парасимпатическую</span> (отдых, пищеварение,
+    восстановление). В обеих системах ключевую роль играют ацетилхолин и
+    норадреналин.
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Звено</th>
+          <th>Симпатика</th>
+          <th>Парасимпатика</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Преганглионарный нейрон</td>
+          <td>Ацетилхолин (никотиновые N-рецепторы)</td>
+          <td>Ацетилхолин (никотиновые N-рецепторы)</td>
+        </tr>
+        <tr>
+          <td>Постганглионарный нейрон</td>
+          <td>Норадреналин (адренорецепторы α, β)</td>
+          <td>Ацетилхолин (мускариновые M-рецепторы)</td>
+        </tr>
+        <tr>
+          <td>Эффект на сердце</td>
+          <td>Тахикардия, усиление сокращений</td>
+          <td>Брадикардия, ослабление сокращений</td>
+        </tr>
+        <tr>
+          <td>Эффект на бронхи</td>
+          <td>Расширение (β₂)</td>
+          <td>Сужение, секреция слизи</td>
+        </tr>
+        <tr>
+          <td>Эффект на ЖКТ</td>
+          <td>Снижение моторики</td>
+          <td>Усиление моторики и секреции</td>
+        </tr>
+        <tr>
+          <td>Эффект на зрачок</td>
+          <td>Расширение (мидриаз)</td>
+          <td>Сужение (миоз)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <strong>Исключение:</strong> постганглионарные симпатические волокна,
+    иннервирующие потовые железы, выделяют ацетилхолин, а не норадреналин. Это
+    важное исключение из правила.
+  </div>
+
+  <h3>Адренорецепторы</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Рецептор</th>
+          <th>Локализация</th>
+          <th>Эффект</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>α₁</td>
+          <td>Сосуды кожи, слизистых, внутренних органов</td>
+          <td>Сужение сосудов, повышение АД</td>
+        </tr>
+        <tr>
+          <td>α₂</td>
+          <td>Пресинаптические окончания</td>
+          <td>Обратная связь, снижение высвобождения норадреналина</td>
+        </tr>
+        <tr>
+          <td>β₁</td>
+          <td>Сердце</td>
+          <td>Тахикардия, усиление сокращений</td>
+        </tr>
+        <tr>
+          <td>β₂</td>
+          <td>Бронхи, сосуды скелетных мышц</td>
+          <td>Расширение бронхов и сосудов</td>
+        </tr>
+        <tr>
+          <td>β₃</td>
+          <td>Жировая ткань</td>
+          <td>Липолиз</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="remember">
+    <strong>Клинические связи:</strong> β-блокаторы (пропранолол, метопролол)
+    снижают ЧСС и АД, применяются при гипертонии и аритмиях. β₂-агонисты
+    (сальбутамол) расширяют бронхи и используются при астме. α₁-блокаторы
+    (празозин) снижают АД.
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ЧАСТЬ 8. ДОПОЛНИТЕЛЬНЫЕ КЛИНИЧЕСКИЕ АСПЕКТЫ                    -->
+<!-- ============================================================ -->
+
+<section id="clinical-neuro">
+  <h2>Клинические аспекты нейромедиаторов</h2>
+
+  <h3>Депрессия и моноаминовая гипотеза</h3>
+  <p>
+    Классическая
+    <span class="term">моноаминовая гипотеза депрессии</span> предполагает, что
+    депрессия связана с дефицитом серотонина, норадреналина и/или дофамина.
+    Современные представления сложнее: участвуют нейропластичность, воспаление,
+    стресс-ось, генетика. Но антидепрессанты, повышающие уровень моноаминов в
+    синапсе, остаются основой терапии.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h4>СИОЗС</h4>
+      <p>
+        Селективные ингибиторы обратного захвата серотонина (флуоксетин,
+        сертралин). Блокируют SERT — транспортер серотонина. Меньше побочных
+        эффектов, чем у трициклических антидепрессантов.
+      </p>
+    </div>
+    <div class="card">
+      <h4>ИМАО</h4>
+      <p>
+        Ингибиторы моноаминоксидазы. Блокируют разрушение моноаминов. Требуют
+        диеты (исключение тирамина — сыр, вино), иначе возможен гипертонический
+        криз.
+      </p>
+    </div>
+  </div>
+
+  <h3>Шизофрения и дофаминовая гипотеза</h3>
+  <p>
+    <span class="term">Дофаминовая гипотеза шизофрении</span> предполагает
+    гиперфункцию дофаминовой системы в мезолимбическом пути. Антипсихотики
+    (нейролептики) блокируют D₂-рецепторы. Побочные эффекты — экстрапирамидные
+    расстройства (паркинсонизм, дистония, акатизия) из-за блокады D₂ в
+    нигростриарном пути.
+  </p>
+
+  <h3>Эпилепсия и ГАМК</h3>
+  <p>
+    Эпилепсия связана с дисбалансом возбуждения и торможения в пользу
+    возбуждения. Усиление ГАМК-ергической передачи — один из подходов к лечению.
+    Барбитураты и бензодиазепины усиливают ГАМК-А-ток, повышают порог судорог.
+    Вигабатрин ингибирует ГАМК-трансаминазу, повышая уровень ГАМК.
+  </p>
+
+  <h3>Болезнь Альцгеймера и ацетилхолин</h3>
+  <p>
+    При болезни Альцгеймера дегенерируют холинергические нейроны базального ядра
+    Мейнерта, что связано с нарушениями памяти и внимания. Ингибиторы
+    ацетилхолинэстеразы (донепезил, галантамин, ривастигмин) временно улучшают
+    когнитивные функции, повышая уровень ацетилхолина в синапсах.
+  </p>
+
+  <div class="warning">
+    <strong>Наркотики и нейромедиаторы:</strong> большинство наркотиков
+    действуют на дофаминовую систему вознаграждения. Кокаин блокирует обратный
+    захват дофамина, амфетамин увеличивает его выброс, опиаты активируют
+    μ-рецепторы. Общий результат — резкий рост дофамина в прилежащем ядре
+    (nucleus accumbens), что вызывает эйфорию и формирует зависимость.
+  </div>
+</section>
+
+<!-- ЧАСТЬ 9 -->
+<footer class="footer">
+  Часть 5 завершена. Чтобы продолжить, напишите <span class="kbd">дальше</span>.
+  Следующий фрагмент: расширенные таблицы, схемы, глоссарий и финальная сборка
+  документа.
+</footer>
+        <!-- ============================================================ -->
+        <!-- ЧАСТЬ 6. ПРИЛОЖЕНИЯ: ГЛОССАРИЙ, СВОДНЫЕ ТАБЛИЦЫ, САМОПРОВЕРКА -->
+        <!-- ============================================================ -->
+
+        <section id="glossary">
+          <h2>Глоссарий ключевых терминов</h2>
+          <p>
+            Ниже собраны основные понятия, встречающиеся в конспекте. Глоссарий удобно использовать
+            для повторения перед экзаменом или зачётом.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Термин</th>
+                  <th>Определение</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="term">Фермент</span></td>
+                  <td>Биологический катализатор белковой природы, ускоряющий химическую реакцию за счёт снижения энергии активации.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Активный центр</span></td>
+                  <td>Участок фермента, где происходит связывание субстрата и его химическое превращение.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Аллостерический центр</span></td>
+                  <td>Регуляторный участок фермента, связывание с которым модулятора меняет активность белка.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Кофактор</span></td>
+                  <td>Небелковая молекула или ион, необходимая для работы фермента (металлы, производные витаминов).</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Простетическая группа</span></td>
+                  <td>Прочно связанная с белком небелковая часть, встроенная в структуру фермента.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Апофермент</span></td>
+                  <td>Белковая часть фермента без кофактора; обычно неактивна.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Холофермент</span></td>
+                  <td>Полный активный комплекс: апофермент + кофактор.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Энергия активации</span></td>
+                  <td>Энергетический барьер, который нужно преодолеть для протекания реакции.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Энергия Гиббса (ΔG)</span></td>
+                  <td>Свободная энергия системы; определяет термодинамическую возможность реакции.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Km</span></td>
+                  <td>Концентрация субстрата, при которой скорость реакции равна половине Vmax; отражает сродство фермента к субстрату.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Vmax</span></td>
+                  <td>Максимальная скорость реакции при насыщении фермента субстратом.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Зимоген</span></td>
+                  <td>Неактивный предшественник фермента, активируемый протеолитическим отщеплением фрагмента.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Специфичность</span></td>
+                  <td>Способность фермента выбирать определённый субстрат или группу субстратов.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Индуцированное соответствие</span></td>
+                  <td>Модель связывания субстрата, при которой фермент и субстрат подстраиваются друг под друга.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Нейромедиатор</span></td>
+                  <td>Химическое вещество, выделяющееся в синаптическую щель и передающее сигнал на постсинаптическую клетку.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Синапс</span></td>
+                  <td>Место контакта между нейронами или между нейроном и эффекторной клеткой.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">ПКП</span></td>
+                  <td>Потенциал концевой пластинки — деполяризация постсинаптической мембраны мышцы под действием ацетилхолина.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">ПД</span></td>
+                  <td>Потенциал действия — электрический импульс, распространяющийся по мембране клетки.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">МАО</span></td>
+                  <td>Моноаминоксидаза — фермент, разрушающий моноамины (серотонин, дофамин, норадреналин).</td>
+                </tr>
+                <tr>
+                  <td><span class="term">КОМТ</span></td>
+                  <td>Катехол-О-метилтрансфераза — фермент, разрушающий катехоламины.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">NMDA-рецептор</span></td>
+                  <td>Ионотропный глутаматный рецептор, требующий глутамат, глицин и деполяризацию для активации.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">АМРА-рецептор</span></td>
+                  <td>Ионотропный глутаматный рецептор, обеспечивающий быстрый возбуждающий ток Na⁺/K⁺.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">ГАМК</span></td>
+                  <td>γ-Аминомасляная кислота — основной тормозный нейромедиатор ЦНС.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">ГАМК-А рецептор</span></td>
+                  <td>Ионотропный Cl⁻-канал, открытие которого гиперполяризует мембрану и тормозит клетку.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Эксайтотоксичность</span></td>
+                  <td>Повреждение нейронов из-за избыточного возбуждения и массивного входа Ca²⁺.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Эндоканнабиноиды</span></td>
+                  <td>Эндогенные липидные медиаторы (анандамид, 2-АГ), действующие на CB₁/CB₂ рецепторы.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Опиоидные пептиды</span></td>
+                  <td>Эндогенные пептиды (эндорфины, энкефалины, динорфины), снижающие болевой сигнал.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Миастения гравис</span></td>
+                  <td>Аутоиммунное заболевание с блокадой никотиновых рецепторов концевой пластинки.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Электромеханическое сопряжение</span></td>
+                  <td>Цепочка событий, превращающая потенциал действия мышцы в механическое сокращение.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Саркомер</span></td>
+                  <td>Структурно-функциональная единица миофибриллы, ограниченная Z-дисками.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Тропонин C</span></td>
+                  <td>Субъединица тропонинового комплекса, связывающая Ca²⁺ и запускающая сокращение.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Тропомиозин</span></td>
+                  <td>Белок, который в покое закрывает участки связывания миозина на актине.</td>
+                </tr>
+                <tr>
+                  <td><span class="term">Титин</span></td>
+                  <td>Гигантский белок, прикрепляющий миозин к Z-диску и обеспечивающий упругость саркомера.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="summary-tables">
+          <h2>Сводные таблицы для быстрого повторения</h2>
+
+          <h3>Ферменты: ключевые примеры</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Фермент</th>
+                  <th>Специфичность</th>
+                  <th>Кофактор</th>
+                  <th>Функция</th>
+                  <th>Клиническое значение</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ацетилхолинэстераза</td>
+                  <td>Абсолютная</td>
+                  <td>—</td>
+                  <td>Разрушает ацетилхолин в синапсе</td>
+                  <td>Мишень фосфорорганики, лекарств при миастении</td>
+                </tr>
+                <tr>
+                  <td>Пепсин</td>
+                  <td>Групповая</td>
+                  <td>—</td>
+                  <td>Расщепляет белки после гидрофобных аминокислот</td>
+                  <td>Активируется из пепсиногена в желудке</td>
+                </tr>
+                <tr>
+                  <td>Алкогольдегидрогеназа</td>
+                  <td>Групповая</td>
+                  <td>Zn²⁺, NAD⁺</td>
+                  <td>Окисляет этанол до ацетальдегида</td>
+                  <td>Антидот при отравлении метанолом</td>
+                </tr>
+                <tr>
+                  <td>Гексокиназа</td>
+                  <td>Стереоспецифичность</td>
+                  <td>Mg²⁺, АТФ</td>
+                  <td>Фосфорилирует глюкозу до глюкозо-6-фосфата</td>
+                  <td>«Запирает» глюкозу в клетке</td>
+                </tr>
+                <tr>
+                  <td>ATC-аза</td>
+                  <td>Групповая</td>
+                  <td>—</td>
+                  <td>Синтез пиримидинов</td>
+                  <td>Аллостерическая регуляция CTP</td>
+                </tr>
+                <tr>
+                  <td>Гликогенфосфорилаза</td>
+                  <td>Групповая</td>
+                  <td>PLP</td>
+                  <td>Расщепляет гликоген до глюкозо-1-фосфата</td>
+                  <td>Регулируется фосфорилированием</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Нейромедиаторы: синтез, удаление, рецепторы</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Медиатор</th>
+                  <th>Предшественник</th>
+                  <th>Удаление</th>
+                  <th>Рецепторы</th>
+                  <th>Основные эффекты</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Серотонин</td>
+                  <td>Триптофан</td>
+                  <td>Обратный захват, МАО</td>
+                  <td>5-HT₁–5-HT₇</td>
+                  <td>Сон, настроение, сенсорная фильтрация, тромбоциты</td>
+                </tr>
+                <tr>
+                  <td>Дофамин</td>
+                  <td>Тирозин</td>
+                  <td>Обратный захват, МАО, КОМТ</td>
+                  <td>D₁–D₅</td>
+                  <td>Мотивация, движение, вознаграждение</td>
+                </tr>
+                <tr>
+                  <td>Норадреналин</td>
+                  <td>Тирозин</td>
+                  <td>Обратный захват, МАО, КОМТ</td>
+                  <td>α, β</td>
+                  <td>Бодрствование, стресс, симпатика</td>
+                </tr>
+                <tr>
+                  <td>Ацетилхолин</td>
+                  <td>Холин + ацетил-КоА</td>
+                  <td>Ацетилхолинэстераза</td>
+                  <td>N (ионотропные), M (GPCR)</td>
+                  <td>Нервно-мышечная передача, парасимпатика, память</td>
+                </tr>
+                <tr>
+                  <td>Глутамат</td>
+                  <td>Глутамин</td>
+                  <td>Захват астроцитами</td>
+                  <td>AMPA, каинат, NMDA, mGluR</td>
+                  <td>Основное возбуждение в ЦНС</td>
+                </tr>
+                <tr>
+                  <td>ГАМК</td>
+                  <td>Глутамат</td>
+                  <td>Захват, ГАМК-Т</td>
+                  <td>ГАМК-А (Cl⁻), ГАМК-Б (GPCR)</td>
+                  <td>Основное торможение в ЦНС</td>
+                </tr>
+                <tr>
+                  <td>Глицин</td>
+                  <td>Серин</td>
+                  <td>Захват</td>
+                  <td>Глициновый рецептор (Cl⁻)</td>
+                  <td>Торможение в спинном мозге, ко-агонист NMDA</td>
+                </tr>
+                <tr>
+                  <td>Гистамин</td>
+                  <td>Гистидин</td>
+                  <td>Захват астроцитами</td>
+                  <td>H₁, H₂, H₃</td>
+                  <td>Аллергия, кислота желудка, возбуждение ЦНС</td>
+                </tr>
+                <tr>
+                  <td>Опиоидные пептиды</td>
+                  <td>ПОМК и др.</td>
+                  <td>Протеолиз</td>
+                  <td>μ, δ, κ</td>
+                  <td>Обезболивание, эйфория, болевой порог</td>
+                </tr>
+                <tr>
+                  <td>Эндоканнабиноиды</td>
+                  <td>Арахидоновая кислота</td>
+                  <td>Ферментативный гидролиз</td>
+                  <td>CB₁, CB₂</td>
+                  <td>Ретроградная регуляция синапса</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Сравнение нервно-мышечного и центрального синапса</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Параметр</th>
+                  <th>Нервно-мышечный синапс</th>
+                  <th>Центральный синапс</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Медиатор</td>
+                  <td>Ацетилхолин</td>
+                  <td>Разные (глутамат, ГАМК, глицин, моноамины)</td>
+                </tr>
+                <tr>
+                  <td>Рецептор</td>
+                  <td>Никотиновый (ионотропный)</td>
+                  <td>Ионотропные и метаботропные</td>
+                </tr>
+                <tr>
+                  <td>Постсинаптическая клетка</td>
+                  <td>Мышечное волокно</td>
+                  <td>Нейрон</td>
+                </tr>
+                <tr>
+                  <td>Результат</td>
+                  <td>Сокращение мышцы</td>
+                  <td>Возбуждение или торможение нейрона</td>
+                </tr>
+                <tr>
+                  <td>Интеграция</td>
+                  <td>Высокая надёжность, большая амплитуда ПКП</td>
+                  <td>Суммация ВПСП и ТПСП, интеграция сигналов</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="self-check">
+          <h2>Вопросы для самопроверки</h2>
+          <p>
+            Попробуйте ответить на вопросы, не подглядывая в конспект. Затем проверьте себя по ответам
+            ниже.
+          </p>
+
+          <h3>Ферменты</h3>
+          <ol>
+            <li>Чем отличается действие фермента от действия неорганического катализатора?</li>
+            <li>Что такое энергия активации и как фермент влияет на неё?</li>
+            <li>Почему фермент не может сделать термодинамически невозможную реакцию возможной?</li>
+            <li>Какие типы специфичности ферментов вы знаете? Приведите примеры.</li>
+            <li>Что такое кофактор и простетическая группа?</li>
+            <li>Чем конкурентное ингибирование отличается от неконкурентного?</li>
+            <li>Что такое Km и Vmax?</li>
+            <li>Как работает аллостерическая регуляция?</li>
+            <li>Что такое зимоген? Приведите пример.</li>
+            <li>Какие механизмы катализа вам известны?</li>
+          </ol>
+
+          <h3>Нейромедиаторы</h3>
+          <ol>
+            <li>Из какой аминокислоты синтезируется серотонин?</li>
+            <li>Как удаляется серотонин из синаптической щели?</li>
+            <li>Какие функции выполняет серотонин в ЦНС и вне ЦНС?</li>
+            <li>Почему серотонин называют «гормоном счастья» и почему это упрощение?</li>
+            <li>Из чего синтезируются дофамин и норадреналин?</li>
+            <li>Какой фермент разрушает моноамины?</li>
+            <li>Почему NMDA-рецептор требует несколько условий для активации?</li>
+            <li>Что такое магниевая пробка и как она удаляется?</li>
+            <li>Какие рецепторы есть у ГАМК и чем они отличаются?</li>
+            <li>Как этанол влияет на ГАМК-А рецепторы в малых и больших дозах?</li>
+            <li>Почему глицин в таблетках плохо проникает в мозг?</li>
+            <li>Чем неклассические нейромедиаторы отличаются от классических?</li>
+            <li>Как работают эндоканнабиноиды?</li>
+          </ol>
+
+          <h3>Нервно-мышечная передача</h3>
+          <ol>
+            <li>Какие ионы проходят через никотиновый рецептор и почему преобладает натрий?</li>
+            <li>Что такое потенциал концевой пластинки?</li>
+            <li>Как развивается миастения гравис и как её лечат?</li>
+            <li>Что такое электромеханическое сопряжение?</li>
+            <li>Какие белки входят в состав саркомера?</li>
+            <li>Как Ca²⁺ запускает сокращение?</li>
+            <li>Почему АТФ нужен и для сокращения, и для расслабления?</li>
+            <li>Что происходит с мышцей после смерти и почему?</li>
+            <li>Чем действие кураре отличается от действия ботулотоксина?</li>
+            <li>Почему столбнячный токсин вызывает судороги, а ботулотоксин — паралич?</li>
+          </ol>
+
+          <h3>Ответы для самопроверки</h3>
+          <div class="note">
+            <strong>Ферменты:</strong> 1) ферменты белковой природы, высокоспецифичны, ускоряют реакции
+            в 10⁵–10¹² раз; 2) энергия активации — барьер, фермент его снижает; 3) фермент не меняет ΔG;
+            4) абсолютная (АХЭ), групповая (пепсин), стереоспецифичность (гексокиназа); 5) кофактор —
+            небелковая молекула, простетическая группа — прочно связанная; 6) конкурентное — Km↑, Vmax
+            не меняется; неконкурентное — Vmax↓, Km не меняется; 7) Km — концентрация при Vmax/2,
+            Vmax — максимальная скорость; 8) модулятор связывается с аллостерическим сайтом и меняет
+            конформацию; 9) неактивный предшественник, например пепсиноген; 10) кислотно-основной,
+            ковалентный, металлозависимый.
+          </div>
+          <div class="note">
+            <strong>Нейромедиаторы:</strong> 1) триптофан; 2) обратный захват и МАО; 3) сон, настроение,
+            сенсорная фильтрация, тромбоциты, сосуды; 4) работает локально как медиатор, не даёт настроению
+            ухудшаться, но не «делает счастливым»; 5) тирозин; 6) МАО; 7) нужны глутамат, глицин и
+            деполяризация; 8) Mg²⁺ блокирует канал, выбивается при деполяризации; 9) ГАМК-А — Cl⁻-канал,
+            ГАМК-Б — GPCR; 10) малые дозы укорачивают открытие, большие — увеличивают частоту; 11) не
+            проникает через ГЭБ; 12) неклассические — пептиды, гистамин, эндоканнабиноиды, действуют
+            нестрого локально; 13) синтезируются в постсинапсе, действуют на пресинапс ретроградно.
+          </div>
+          <div class="note">
+            <strong>Нервно-мышечная передача:</strong> 1) Na⁺ и K⁺, но Na⁺ входит сильнее; 2) деполяризация
+            концевой пластинки; 3) аутоиммунная блокада никотиновых рецепторов, лечат ингибиторами АХЭ;
+            4) ПД → Ca²⁺ → тропонин C → сокращение; 5) актин, миозин, тропомиозин, тропонин, титин;
+            6) Ca²⁺ связывается с тропонином C, тропомиозин смещается, актин открывается; 7) АТФ нужен
+            для отсоединения миозина; 8) трупное окоченение из-за нехватки АТФ; 9) кураре блокирует
+            рецепторы, ботулотоксин — выделение АХ; 10) столбнячный токсин блокирует торможение,
+            ботулотоксин — возбуждение.
+          </div>
+        </section>
+
+        <section id="final-assembly">
+          <h2>Финальная сборка документа</h2>
+          <p>
+            HTML-документ состоит из следующих частей:
+          </p>
+          <ol>
+            <li><strong>Часть 1.</strong> Ферменты: базовые понятия, энергия активации, активный центр,
+              кофакторы, специфичность, примеры, теории связывания, свойства, регуляция, сопряжённые
+              реакции, устойчивость, механизмы катализа, домашнее задание.</li>
+            <li><strong>Часть 2.</strong> Нейромедиаторы: общая карта, серотонин, дофамин, норадреналин,
+              глутамат, ГАМК, глицин, неклассические медиаторы, сводка.</li>
+            <li><strong>Часть 3.</strong> Нервно-мышечная передача: синапс, никотиновый рецептор,
+              миастения гравис, электромеханическое сопряжение, саркомер, скользящие филаменты,
+              типы мышц, клинические состояния, итоговая сводка.</li>
+            <li><strong>Часть 4.</strong> Кинетика ферментов, ингибирование, глубже о регуляции,
+              коферменты и витамины, классы ферментов.</li>
+            <li><strong>Часть 5.</strong> Ацетилхолин и холинергическая система, метаболизм
+              нейромедиаторов, вегетативная нервная система, клинические аспекты.</li>
+            <li><strong>Часть 6.</strong> Глоссарий, сводные таблицы, вопросы для самопроверки,
+              ответы, финальная сборка.</li>
+          </ol>
+
+          <div class="remember">
+            <strong>Как собрать:</strong> вставьте части 2, 3, 4, 5 и 6 в основной HTML-файл вместо
+            комментариев <span class="kbd">&lt;!-- ЧАСТЬ 2 --&gt;</span>,
+            <span class="kbd">&lt;!-- ЧАСТЬ 3 --&gt;</span>,
+            <span class="kbd">&lt;!-- ЧАСТЬ 4 --&gt;</span>,
+            <span class="kbd">&lt;!-- ЧАСТЬ 5 --&gt;</span>,
+            <span class="kbd">&lt;!-- ЧАСТЬ 6 --&gt;</span>.
+            После вставки закройте теги <span class="kbd">&lt;/main&gt;</span>,
+            <span class="kbd">&lt;/div&gt;</span>, <span class="kbd">&lt;/div&gt;</span>,
+            <span class="kbd">&lt;/body&gt;</span>, <span class="kbd">&lt;/html&gt;</span>.
+          </div>
+
+          <h3>Рекомендации по использованию</h3>
+          <ul>
+            <li>Для печати используйте <span class="kbd">Ctrl+P</span> — стили уже адаптированы,
+              оглавление скрывается.</li>
+            <li>Для мобильных устройств вёрстка автоматически перестраивается в одну колонку.</li>
+            <li>Если нужен файл без интернета, удалите ссылки на Google Fonts — останется системный
+              серифный шрифт.</li>
+            <li>Для тёмной темы можно добавить CSS-переменные и медиазапрос <span class="kbd">prefers-color-scheme</span>.</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <p style="text-align:center;color:var(--muted);font-size:0.92rem;">
+            Конспект завершён. Материал охватывает ферменты, нейромедиаторы и нервно-мышечную передачу
+            в объёме, достаточном для повторения и подготовки к занятию. При необходимости можно
+            добавить схемы, рисунки или интерактивные элементы.
+          </p>
+        </section>
+
+        <footer class="footer">
+          <strong>Готово.</strong> Все части конспекта собраны в единый HTML-документ.
+          Если нужно — могу подготовить версию с оглавлением в виде боковой панели, тёмной темой,
+          печатной версией или разбить материал на отдельные страницы.
+        </footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>        <!-- ============================================================ -->
+        <!-- ЧАСТЬ 7. УГЛУБЛЁННЫЕ ТЕМЫ: МЕХАНИЗМЫ, ПРИМЕРЫ, КЛИНИКА        -->
+        <!-- Вставить перед закрывающим тегом </main>                      -->
+        <!-- ============================================================ -->
+
+        <section id="deep-enzymes">
+          <h2>Углублённо: механизмы работы конкретных ферментов</h2>
+          <p>
+            Этот раздел расширяет примеры из основного конспекта и показывает, как общие принципы
+            ферментативного катализа проявляются в конкретных молекулярных машинах.
+          </p>
+
+          <h3>Лизоцим: первый фермент с расшифрованной структурой</h3>
+          <p>
+            <span class="term">Лизоцим</span> — фермент, обнаруженный Александром Флемингом в 1922 году
+            в слёзах и слюне. Он расщепляет пептидогликан клеточной стенки бактерий, обеспечивая
+            неспецифический иммунитет. Лизоцим стал модельным объектом для понимания ферментативного
+            катализа: его структура была одной из первых расшифрованных методом рентгеновской
+            кристаллографии.
+          </p>
+
+          <div class="grid">
+            <div class="card">
+              <h4>Механизм</h4>
+              <p>
+                Лизоцим гидролизует β-1,4-гликозидные связи между N-ацетилмурамовой кислотой и
+                N-ацетилглюкозамином. В активном центре участвуют два ключевых остатка:
+                <span class="term">Glu35</span> (донор протона) и <span class="term">Asp52</span>
+                (стабилизация промежуточного состояния). Реакция идёт по механизму
+                <span class="term">кислотно-основного катализа</span> с образованием оксокарбениевого
+                иона.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Значение</h4>
+              <p>
+                Лизоцим — пример того, как фермент использует пространственное окружение активного
+                центра для стабилизации переходного состояния. Он также иллюстрирует
+                <span class="term">индуцированное соответствие</span>: при связывании субстрата
+                активный центр слегка меняет конформацию.
+              </p>
+            </div>
+          </div>
+
+          <h3>Карбоангидраза: один из самых быстрых ферментов</h3>
+          <p>
+            <span class="term">Карбоангидраза</span> катализирует обратимую реакцию гидратации
+            углекислого газа:
+          </p>
+          <div class="equation">
+            CO₂ + H₂O ⇌ HCO₃⁻ + H⁺
+          </div>
+          <p>
+            Число оборотов карбоангидразы достигает 10⁶ молекул в секунду — это один из самых
+            эффективных ферментов. В активном центре находится ион цинка, который поляризует
+            молекулу воды и облегчает её атаку на CO₂. Фермент играет ключевую роль в транспорте
+            CO₂ кровью, в работе почек и в регуляции pH.
+          </p>
+
+          <div class="note">
+            <strong>Клиническое значение:</strong> ингибиторы карбоангидразы (ацетазоламид) применяются
+            при глаукоме (снижают продукцию водянистой влаги), горной болезни и некоторых формах
+            эпилепсии.
+          </div>
+
+          <h3>Триозофосфатизомераза: каталитическое совершенство</h3>
+          <p>
+            <span class="term">Триозофосфатизомераза</span> (TIM) катализирует взаимопревращение
+            дигидроксиацетонфосфата и глицеральдегид-3-фосфата в гликолизе. Её kcat/Km приближается
+            к пределу диффузии — то есть фермент работает почти так быстро, как только возможно
+            для фермента в растворе. Это пример «каталитически совершенного» фермента.
+          </p>
+
+          <div class="remember">
+            <strong>Каталитическое совершенство:</strong> фермент, у которого kcat/Km приближается
+            к 10⁸–10⁹ М⁻¹·с⁻¹, считается каталитически совершенным. Дальнейшее ускорение уже
+            ограничено скоростью диффузии субстрата к активному центру.
+          </div>
+        </section>
+
+        <section id="deep-neuro">
+          <h2>Углублённо: нейрохимия и фармакология</h2>
+
+          <h3>Дофаминовые пути в мозге</h3>
+          <p>
+            Дофаминергические нейроны образуют несколько крупных путей, и каждый связан с определёнными
+            функциями и патологиями.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Путь</th>
+                  <th>Откуда → куда</th>
+                  <th>Функция</th>
+                  <th>Патология</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Нигростриарный</td>
+                  <td>Чёрная субстанция → стриатум</td>
+                  <td>Контроль движений</td>
+                  <td>Болезнь Паркинсона</td>
+                </tr>
+                <tr>
+                  <td>Мезолимбический</td>
+                  <td>Вентральная покрышка → прилежащее ядро</td>
+                  <td>Мотивация, вознаграждение</td>
+                  <td>Зависимости, психозы</td>
+                </tr>
+                <tr>
+                  <td>Мезокортикальный</td>
+                  <td>Вентральная покрышка → префронтальная кора</td>
+                  <td>Когнитивные функции, эмоции</td>
+                  <td>Шизофрения, депрессия</td>
+                </tr>
+                <tr>
+                  <td>Тубероинфундибулярный</td>
+                  <td>Гипоталамус → гипофиз</td>
+                  <td>Регуляция пролактина</td>
+                  <td>Гиперпролактинемия</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Серотониновые рецепторы: краткий обзор</h3>
+          <p>
+            Серотонин действует через 7 семейств рецепторов (5-HT₁–5-HT₇), большинство из которых —
+            GPCR. Исключение — 5-HT₃, который является ионотропным каналом. Разнообразие рецепторов
+            объясняет широкий спектр эффектов серотонина и сложность фармакологического воздействия.
+          </p>
+
+          <ul>
+            <li><strong>5-HT₁A</strong> — ауторецептор на серотониновых нейронах; агонисты (буспирон)
+              применяются при тревожных расстройствах.</li>
+            <li><strong>5-HT₂A</strong> — возбуждающий рецептор в коре; мишень психоделиков
+              (ЛСД, псилоцибин) и атипичных антипсихотиков.</li>
+            <li><strong>5-HT₃</strong> — ионотропный канал; антагонисты (ондансетрон) применяются
+              при тошноте и рвоте после химиотерапии.</li>
+            <li><strong>5-HT₄</strong> — в ЖКТ; агонисты (прукалоприд) стимулируют моторику.</li>
+          </ul>
+
+          <div class="note">
+            <strong>Серотониновый синдром:</strong> избыток серотонина из-за сочетания препаратов
+            (например, СИОЗС + ИМАО + триптаны) вызывает возбуждение, тремор, гипертермию,
+            мышечную ригидность, тахикардию. Это неотложное состояние, требующее отмены препаратов
+            и симптоматической терапии.
+          </div>
+
+          <h3>Глутамат и NMDA-рецепторы: клинические аспекты</h3>
+          <p>
+            NMDA-рецепторы участвуют в обучении и памяти (LTP), но при чрезмерной активации вызывают
+            эксайтотоксичность. Это делает их мишенью для лекарств.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Препарат</th>
+                  <th>Механизм</th>
+                  <th>Применение</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Мемантин</td>
+                  <td>Неcompetitive антагонист NMDA</td>
+                  <td>Болезнь Альцгеймера</td>
+                </tr>
+                <tr>
+                  <td>Кетамин</td>
+                  <td>Антагонист NMDA</td>
+                  <td>Анестезия, резистентная депрессия</td>
+                </tr>
+                <tr>
+                  <td>Дизоцилпин (MK-801)</td>
+                  <td>Антагонист NMDA</td>
+                  <td>Экспериментальная модель психоза</td>
+                </tr>
+                <tr>
+                  <td>Фенциклидин (PCP)</td>
+                  <td>Антагонист NMDA</td>
+                  <td>Наркотик, вызывает психоз</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="warning">
+            <strong>Кетамин и депрессия:</strong> в последние годы показано, что низкие дозы кетамина
+            дают быстрый антидепрессивный эффект при резистентной депрессии — в отличие от классических
+            антидепрессантов, действующих неделями. Механизм связан с блокадой NMDA и быстрой
+            стимуляцией синаптогенеза.
+          </div>
+        </section>
+
+        <section id="deep-muscle">
+          <h2>Углублённо: мышечное сокращение</h2>
+
+          <h3>Типы мышечных волокон</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Тип</th>
+                  <th>Сокращение</th>
+                  <th>Утомляемость</th>
+                  <th>Цвет</th>
+                  <th>Источник энергии</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>I (медленные, окислительные)</td>
+                  <td>Медленное</td>
+                  <td>Низкая</td>
+                  <td>Красные (много миоглобина)</td>
+                  <td>Аэробный</td>
+                </tr>
+                <tr>
+                  <td>IIa (быстрые, окислительно-гликолитические)</td>
+                  <td>Быстрое</td>
+                  <td>Средняя</td>
+                  <td>Красные</td>
+                  <td>Смешанный</td>
+                </tr>
+                <tr>
+                  <td>IIb/IIx (быстрые, гликолитические)</td>
+                  <td>Очень быстрое</td>
+                  <td>Высокая</td>
+                  <td>Белые</td>
+                  <td>Анаэробный гликолиз</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Энергетика мышечного сокращения</h3>
+          <p>
+            Мышце нужен АТФ для нескольких процессов:
+          </p>
+          <ul>
+            <li>работы миозиновой АТФазы (цикл головки);</li>
+            <li>работы Ca²⁺-АТФазы саркоплазматического ретикулума (закачка Ca²⁺ обратно);</li>
+            <li>работы Na⁺/K⁺-АТФазы (восстановление ионных градиентов).</li>
+          </ul>
+
+          <div class="grid">
+            <div class="card">
+              <h4>Креатинфосфат</h4>
+              <p>
+                Быстрый резерв АТФ. Креатинкиназа переносит фосфат с креатинфосфата на АДФ,
+                восстанавливая АТФ за секунды. Используется при кратковременных интенсивных нагрузках.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Гликолиз</h4>
+              <p>
+                Анаэробный путь, даёт АТФ быстро, но с накоплением лактата. Обеспечивает энергию
+                при нагрузках средней интенсивности.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Окислительное фосфорилирование</h4>
+              <p>
+                Аэробный путь, много АТФ, но медленнее. Основной источник энергии для длительных
+                нагрузок и для медленных волокон.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Утомление</h4>
+              <p>
+                Связано с накоплением лактата, истощением креатинфосфата, нарушением Ca²⁺-градиентов
+                и другими факторами. Быстрые волокна утомляются быстрее.
+              </p>
+            </div>
+          </div>
+
+          <h3>Моторные единицы</h3>
+          <p>
+            <span class="term">Моторная единица</span> — это один мотонейрон и все мышечные волокна,
+            которые он иннервирует. При сокращении активируются сначала медленные моторные единицы
+            (принцип размера Хеннемана), затем — быстрые, если нужна большая сила. Это позволяет
+            плавно регулировать усилие.
+          </p>
+        </section>
+
+        <section id="deep-neurotransmitter-interactions">
+          <h2>Взаимодействие нейромедиаторных систем</h2>
+          <p>
+            В реальном мозге нейромедиаторы не работают изолированно. Один нейрон может получать
+            сигналы от разных систем, а один медиатор может модулировать выделение другого.
+          </p>
+
+          <h3>Ко-трансмиссия</h3>
+          <p>
+            <span class="term">Ко-трансмиссия</span> — выделение из одного окончания двух или более
+            медиаторов. Например, в симпатических окончаниях вместе с норадреналином выделяется АТФ
+            и нейропептид Y. В глутаматергических синапсах с глутаматом может выделяться глицин
+            (как ко-агонист NMDA).
+          </p>
+
+          <div class="note">
+            <strong>Зачем нужна ко-трансмиссия:</strong> разные медиаторы могут действовать на разные
+            временные масштабы (быстрый ионотропный ответ + медленная метаботропная модуляция),
+            на разные постсинаптические мишени, или обеспечивать разные аспекты одного процесса.
+          </div>
+
+          <h3>Пресинаптическая модуляция</h3>
+          <p>
+            Многие рецепторы находятся на пресинаптических окончаниях. Их активация может усиливать
+            или ослаблять выделение медиатора. Примеры:
+          </p>
+          <ul>
+            <li><strong>α₂-адренорецепторы</strong> на норадренергических окончаниях — ауторецепторы
+              обратной связи, снижают высвобождение норадреналина.</li>
+            <li><strong>5-HT₁B/1D</strong> на серотониновых окончаниях — ауторецепторы, снижают
+              высвобождение серотонина; мишени триптанов при мигрени.</li>
+            <li><strong>CB₁-рецепторы</strong> — пресинаптические, снижают выделение медиатора;
+              эндоканнабиноиды действуют ретроградно.</li>
+            <li><strong>Мускариновые M₂</strong> на парасимпатических окончаниях — ауторецепторы,
+              снижают выделение ацетилхолина.</li>
+          </ul>
+
+          <h3>Взаимодействие серотонина и дофамина</h3>
+          <p>
+            Серотонин может модулировать дофаминовую передачу. Например, в мезолимбическом пути
+            серотонин через 5-HT₂A рецепторы может усиливать или ослаблять дофаминовый сигнал.
+            Это одна из причин, почему антидепрессанты могут влиять на мотивацию и почему
+            сочетание препаратов требует осторожности.
+          </p>
+        </section>
+
+        <section id="deep-addiction">
+          <h2>Нейробиология зависимости</h2>
+          <p>
+            <span class="term">Зависимость</span> — это хроническое заболевание, связанное с
+            изменениями в системе вознаграждения мозга. Ключевую роль играет дофамин и
+            <span class="term">прилежащее ядро (nucleus accumbens)</span>.
+          </p>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <strong>1. Острая интоксикация.</strong> Наркотик вызывает резкий выброс дофамина
+              в прилежащем ядре, что даёт ощущение эйфории.
+            </div>
+            <div class="timeline-item">
+              <strong>2. Толерантность.</strong> Рецепторы снижают чувствительность, требуется
+              большая доза для того же эффекта.
+            </div>
+            <div class="timeline-item">
+              <strong>3. Зависимость.</strong> Без наркотика уровень дофамина падает ниже нормы,
+              возникает дисфория, тревога, «ломка».
+            </div>
+            <div class="timeline-item">
+              <strong>4. Компульсивное поведение.</strong> Поиск наркотика становится
+              доминирующим мотивом, несмотря на последствия.
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Вещество</th>
+                  <th>Механизм</th>
+                  <th>Основной эффект</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Кокаин</td>
+                  <td>Блокирует обратный захват дофамина (DAT)</td>
+                  <td>Резкий рост дофамина в синапсе</td>
+                </tr>
+                <tr>
+                  <td>Амфетамин</td>
+                  <td>Увеличивает выброс дофамина, блокирует VMAT</td>
+                  <td>Массивный выброс дофамина</td>
+                </tr>
+                <tr>
+                  <td>Опиаты (героин, морфий)</td>
+                  <td>Агонисты μ-опиоидных рецепторов</td>
+                  <td>Эйфория, обезболивание, угнетение дыхания</td>
+                </tr>
+                <tr>
+                  <td>Никотин</td>
+                  <td>Агонист никотиновых рецепторов</td>
+                  <td>Выброс дофамина, эйфория, зависимость</td>
+                </tr>
+                <tr>
+                  <td>Алкоголь</td>
+                  <td>Модулятор ГАМК-А и NMDA</td>
+                  <td>Седация, расторможенность</td>
+                </tr>
+                <tr>
+                  <td>Каннабиноиды (ТГК)</td>
+                  <td>Агонист CB₁-рецепторов</td>
+                  <td>Эйфория, изменение восприятия, релаксация</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="warning">
+            <strong>Передозировка опиатами:</strong> угнетение дыхательного центра — главная причина
+            смерти. Антидот — <span class="term">налоксон</span>, конкурентный антагонист
+            опиоидных рецепторов. Он быстро восстанавливает дыхание, но требует повторного введения
+            из-за короткого периода полувыведения.
+          </div>
+        </section>
+
+        <section id="deep-drugs">
+          <h2>Лекарства, действующие на ферменты и синапсы</h2>
+          <p>
+            Многие лекарства — это ингибиторы или активаторы ферментов либо модуляторы синаптической
+            передачи. Ниже — сводка по основным группам.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Препарат</th>
+                  <th>Мишень</th>
+                  <th>Механизм</th>
+                  <th>Применение</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Аспирин</td>
+                  <td>Циклооксигеназа (ЦОГ-1, ЦОГ-2)</td>
+                  <td>Необратимое ацетилирование</td>
+                  <td>Противовоспалительное, антиагрегант</td>
+                </tr>
+                <tr>
+                  <td>Ибупрофен</td>
+                  <td>ЦОГ-1, ЦОГ-2</td>
+                  <td>Обратимый конкурентный ингибитор</td>
+                  <td>Противовоспалительное, обезболивающее</td>
+                </tr>
+                <tr>
+                  <td>Метотрексат</td>
+                  <td>Дигидрофолатредуктаза</td>
+                  <td>Конкурентный ингибитор</td>
+                  <td>Онкология, аутоиммунные заболевания</td>
+                </tr>
+                <tr>
+                  <td>Статины</td>
+                  <td>ГМГ-КоА-редуктаза</td>
+                  <td>Конкурентный ингибитор</td>
+                  <td>Снижение холестерина</td>
+                </tr>
+                <tr>
+                  <td>Ингибиторы АПФ</td>
+                  <td>Ангиотензинпревращающий фермент</td>
+                  <td>Конкурентный ингибитор</td>
+                  <td>Гипертония, сердечная недостаточность</td>
+                </tr>
+                <tr>
+                  <td>Неостигмин</td>
+                  <td>Ацетилхолинэстераза</td>
+                  <td>Обратимый ингибитор</td>
+                  <td>Миастения гравис</td>
+                </tr>
+                <tr>
+                  <td>Донепезил</td>
+                  <td>Ацетилхолинэстераза</td>
+                  <td>Обратимый ингибитор</td>
+                  <td>Болезнь Альцгеймера</td>
+                </tr>
+                <tr>
+                  <td>Флуоксетин</td>
+                  <td>SERT (транспортер серотонина)</td>
+                  <td>Блокирует обратный захват</td>
+                  <td>Депрессия, тревожные расстройства</td>
+                </tr>
+                <tr>
+                  <td>Галоперидол</td>
+                  <td>D₂-рецепторы</td>
+                  <td>Антагонист</td>
+                  <td>Шизофрения, психозы</td>
+                </tr>
+                <tr>
+                  <td>Леводопа</td>
+                  <td>Предшественник дофамина</td>
+                  <td>Проникает через ГЭБ и превращается в дофамин</td>
+                  <td>Болезнь Паркинсона</td>
+                </tr>
+                <tr>
+                  <td>Сальбутамол</td>
+                  <td>β₂-адренорецепторы</td>
+                  <td>Агонист</td>
+                  <td>Бронхиальная астма</td>
+                </tr>
+                <tr>
+                  <td>Пропранолол</td>
+                  <td>β₁/β₂-адренорецепторы</td>
+                  <td>Антагонист</td>
+                  <td>Гипертония, аритмии, тревога</td>
+                </tr>
+                <tr>
+                  <td>Атропин</td>
+                  <td>Мускариновые рецепторы</td>
+                  <td>Антагонист</td>
+                  <td>Брадикардия, отравление ФОС</td>
+                </tr>
+                <tr>
+                  <td>Диазепам</td>
+                  <td>ГАМК-А рецептор (бензодиазепиновый сайт)</td>
+                  <td>Позитивный модулятор</td>
+                  <td>Тревога, судороги, седация</td>
+                </tr>
+                <tr>
+                  <td>Флумазенил</td>
+                  <td>Бензодиазепиновый сайт</td>
+                  <td>Антагонист</td>
+                  <td>Передозировка бензодиазепинов</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="molecular-techniques">
+          <h2>Методы изучения ферментов и нейромедиаторов</h2>
+          <p>
+            Понимание того, как изучают ферменты и нейромедиаторы, помогает интерпретировать
+            экспериментальные данные и клинические анализы.
+          </p>
+
+          <div class="grid">
+            <div class="card">
+              <h4>Спектрофотометрия</h4>
+              <p>
+                Измерение поглощения света при определённой длине волны. Позволяет следить за
+                образованием продукта или расходом субстрата, если они поглощают свет.
+                Например, NADH поглощает при 340 нм, а NAD⁺ — нет.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Хроматография</h4>
+              <p>
+                Разделение смесей веществ. В биохимии используется для очистки ферментов,
+                анализа нейромедиаторов и их метаболитов (ВЭЖХ, газовая хроматография).
+              </p>
+            </div>
+            <div class="card">
+              <h4>Электрофорез</h4>
+              <p>
+                Разделение белков по заряду и массе. SDS-PAGE позволяет оценить чистоту фермента
+                и его молекулярную массу. Изоэлектрофокусирование разделяет по изоэлектрической точке.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Масс-спектрометрия</h4>
+              <p>
+                Определение массы и структуры молекул. Используется для идентификации метаболитов,
+                пептидов и посттрансляционных модификаций.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Микроскопия</h4>
+              <p>
+                Флуоресцентная микроскопия позволяет видеть локализацию белков в клетке.
+                Конфокальная и суперразрешающая микроскопия дают детализацию до десятков нанометров.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Электрофизиология</h4>
+              <p>
+                Patch-clamp позволяет регистрировать токи через отдельные ионные каналы.
+                Это ключевой метод изучения рецепторов и синаптической передачи.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ЧАСТЬ 8 -->
+        <footer class="footer">
+          Часть 7 завершена. Чтобы продолжить, напишите <span class="kbd">дальше</span>.
+          Следующий фрагмент: практические задачи, разбор клинических случаев и итоговые
+          рекомендации по подготовке.
+        </footer
